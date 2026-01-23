@@ -6,10 +6,10 @@ Extend the power of GitHub Copilot with MCP servers, skills, hooks, and other ex
 
 ## 🔌 What's Inside
 
-- **MCP Servers** — Model Context Protocol servers that give Copilot new capabilities
 - **Skills** — Reusable prompts and workflows for common tasks
-- **Hooks** — Custom integrations and event-driven automations
-- **Extensibility Tools** — Building blocks for creating your own plugins
+- **MCP Servers** — Model Context Protocol servers that give Copilot new capabilities *(coming soon)*
+- **Hooks** — Custom integrations and event-driven automations *(coming soon)*
+- **Extensibility Tools** — Building blocks for creating your own plugins *(coming soon)*
 
 ## 🤝 Contributing
 

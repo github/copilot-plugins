@@ -13,7 +13,7 @@ Extend the power of GitHub Copilot with MCP servers, skills, hooks, and other ex
 
 ## 🤝 Contributing
 
-We'd love your contributions! Please read our [Contributing Guide](CONTRIBUTING.md) for details on how to submit pull requests, and make sure to follow our [Code of Conduct](CODE_OF_CONDUCT.md).
+We'd love your contributions! Please read our [Contributing Guide](CONTRIBUTING.md) for details on how to submit pull requests.
 
 ## 📄 License
 

@@ -10,6 +10,14 @@
   },
   "plugins": [
     {
+      "name": "azure",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/microsoft/GitHub-Copilot-for-Azure/tree/main/claude"
+      },
+      "description": "Azure plugin for GitHub Copilot."
+    },
+    {
       "name": "workiq",
       "source": "plugins/workiq",
       "description": "WorkIQ plugin for GitHub Copilot.",

@@ -17,6 +17,15 @@
       "skills": [
         "./skills/workiq"
       ]
+    },
+    {
+      "name": "spark",
+      "source": "plugins/spark",
+      "description": "Spark plugin for GitHub Copilot.",
+      "version": "1.0.0",
+      "skills": [
+        "./skills/spark"
+      ]
     }
   ]
 }

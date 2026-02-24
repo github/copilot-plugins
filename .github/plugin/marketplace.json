@@ -26,6 +26,16 @@
       "skills": [
         "./skills/spark"
       ]
+    },
+    {
+      "name": "modernize-dotnet",
+      "source": {
+        "source": "github",
+        "repo": "dotnet/modernize-dotnet",
+        "path": "plugins/modernize-dotnet"
+      },
+      "description": "AI-powered .NET modernization and upgrade assistant. Helps upgrade .NET Framework and .NET applications to the latest versions of .NET.",
+      "version": "1.0.920-preview1"
     }
   ]
 }

@@ -26,6 +26,16 @@
       "skills": [
         "./skills/spark"
       ]
+    },
+    {
+      "name": "cosmosdb-agent-kit",
+      "source": {
+        "source": "github",
+        "repo": "AzureCosmosDB/cosmosdb-agent-kit",
+        "path": "skills/cosmosdb-best-practices"
+      },
+      "description": "Azure Cosmos DB performance optimization guidelines containing 45+ rules across 8 categories, prioritized by impact. Covers data modeling, partition key design, query optimization, SDK best practices, indexing strategies, throughput & scaling, global distribution, and monitoring & diagnostics.",
+      "version": "1.0.0"
     }
   ]
 }

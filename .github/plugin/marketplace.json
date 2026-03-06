@@ -26,6 +26,15 @@
       "skills": [
         "./skills/spark"
       ]
+    },
+    {
+      "name": "dotnet-backend",
+      "source": "plugins/dotnet-backend",
+      "description": "Decision-tree guidance for .NET 9 backend development — architecture patterns, CQRS, DDD, testing strategies, and production best practices.",
+      "version": "1.0.0",
+      "skills": [
+        "./skills/dotnet-backend"
+      ]
     }
   ]
 }

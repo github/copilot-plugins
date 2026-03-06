@@ -11,7 +11,7 @@
   "plugins": [
     {
       "name": "workiq",
-      "source": "plugins/workiq",
+      "source": "./plugins/workiq",
       "description": "WorkIQ plugin for GitHub Copilot.",
       "version": "1.0.0",
       "skills": [
@@ -20,7 +20,7 @@
     },
     {
       "name": "spark",
-      "source": "plugins/spark",
+      "source": "./plugins/spark",
       "description": "Spark plugin for GitHub Copilot.",
       "version": "1.0.0",
       "skills": [

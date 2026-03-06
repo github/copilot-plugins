@@ -26,6 +26,15 @@
       "skills": [
         "./skills/spark"
       ]
+    },
+    {
+      "name": "sentry",
+      "source": "plugins/sentry",
+      "description": "Sentry plugin for GitHub Copilot.",
+      "version": "1.0.0",
+      "skills": [
+        "./skills/sentry"
+      ]
     }
   ]
 }

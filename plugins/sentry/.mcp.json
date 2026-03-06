@@ -1,0 +1,13 @@
+{
+    "mcpServers": {
+        "sentry": {
+            "tools": [
+                "*"
+            ],
+            "type": "http",
+            "url": "https://mcp.sentry.dev/mcp",
+            "headers": {},
+            "source": "user"
+        }
+    }
+}

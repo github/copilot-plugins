@@ -26,6 +26,15 @@
       "skills": [
         "./skills/spark"
       ]
+    },
+    {
+      "name": "advanced-security",
+      "source": "./plugins/advanced-security",
+      "description": "Advanced Security plugin for GitHub Copilot.",
+      "version": "1.0.0",
+      "skills": [
+        "./skills/secret-scanning"
+      ]
     }
   ]
 }

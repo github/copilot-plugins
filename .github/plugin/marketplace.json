@@ -26,6 +26,15 @@
       "skills": [
         "./skills/spark"
       ]
+    },
+    {
+      "name": "planetscale",
+      "source": {
+        "source": "github",
+        "repo": "planetscale/vscode-agent-plugin"
+      },
+      "description": "PlanetScale database tools — MCP server for querying schemas, running SQL, and getting performance insights, plus expert skills for MySQL, PostgreSQL, Vitess, and Postgres sharding.",
+      "version": "1.0.0"
     }
   ]
 }

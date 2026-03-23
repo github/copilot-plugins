@@ -11,12 +11,80 @@
   "plugins": [
     {
       "name": "workiq",
-      "source": "./plugins/workiq",
-      "description": "WorkIQ plugin for GitHub Copilot.",
+      "description": "Query Microsoft 365 data with natural language — emails, meetings, documents, Teams messages, and more.",
       "version": "1.0.0",
-      "skills": [
-        "./skills/workiq"
-      ]
+      "author": {
+        "name": "Microsoft",
+        "url": "https://www.microsoft.com"
+      },
+      "homepage": "https://github.com/microsoft/work-iq",
+      "keywords": [
+        "workiq",
+        "microsoft-365",
+        "m365",
+        "copilot",
+        "email",
+        "meetings",
+        "teams"
+      ],
+      "license": "MIT",
+      "repository": "https://github.com/microsoft/work-iq",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/work-iq",
+        "path": "plugins/workiq"
+      }
+    },
+    {
+      "name": "microsoft-365-agents-toolkit",
+      "description": "Toolkit for building Microsoft 365 Copilot declarative agents — scaffolding, JSON manifest development, and capability configuration.",
+      "version": "1.1.0",
+      "author": {
+        "name": "Microsoft",
+        "url": "https://www.microsoft.com"
+      },
+      "homepage": "https://github.com/microsoft/work-iq",
+      "keywords": [
+        "m365",
+        "agents",
+        "declarative-agent",
+        "copilot",
+        "teams",
+        "toolkit"
+      ],
+      "license": "MIT",
+      "repository": "https://github.com/microsoft/work-iq",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/work-iq",
+        "path": "plugins/microsoft-365-agents-toolkit"
+      }
+    },
+    {
+      "name": "workiq-productivity",
+      "description": "WorkIQ productivity skills powered by the local WorkIQ CLI — read-only insights across email, meetings, calendar, Teams, SharePoint, projects, and people.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Microsoft",
+        "url": "https://www.microsoft.com"
+      },
+      "homepage": "https://github.com/microsoft/work-iq",
+      "keywords": [
+        "workiq",
+        "productivity",
+        "email",
+        "meetings",
+        "teams",
+        "sharepoint",
+        "planner"
+      ],
+      "license": "MIT",
+      "repository": "https://github.com/microsoft/work-iq",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/work-iq",
+        "path": "plugins/workiq-productivity"
+      }
     },
     {
       "name": "spark",

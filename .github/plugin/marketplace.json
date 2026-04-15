@@ -35,6 +35,16 @@
       "skills": [
         "./skills/secret-scanning"
       ]
+    },
+    {
+      "name": "fabric-ux-devkit",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://dev.azure.com/powerbi/Trident/_git/fabric-ux",
+        "path": "fabric-ux-devkit"
+      },
+      "description": "Fabric UX developer agent, skills, and MCP server for consumer-repo parity analysis, component catalog lookup, and spec-to-code implementation.",
+      "version": "0.1.0"
     }
   ]
 }

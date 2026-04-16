@@ -33,7 +33,8 @@
       "description": "Advanced Security plugin for GitHub Copilot.",
       "version": "1.0.0",
       "skills": [
-        "./skills/secret-scanning"
+        "./skills/secret-scanning",
+        "./skills/dependency-scanning"
       ]
     }
   ]

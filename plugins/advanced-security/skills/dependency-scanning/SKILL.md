@@ -1,4 +1,4 @@
-﻿---
+---
 name: dependency-scanning
 description: Scan project dependencies for known CVEs and security vulnerabilities using ecosystem-native audit tools (npm audit, yarn audit, pnpm audit, pip-audit, cargo audit, govulncheck, bundler-audit, dotnet list package).
 metadata:
@@ -8,7 +8,7 @@ metadata:
       - Cursor
       - Codex
       - Claude Code
-allowed-tools: Bash Bash(gh:*) Glob Read
+allowed-tools: Bash(npm:*) Bash(yarn:*) Bash(pnpm:*) Bash(pip-audit:*) Bash(cargo:*) Bash(govulncheck:*) Bash(bundler-audit:*) Bash(dotnet:*) Bash(git:*) Bash(gh:*) Bash(curl:*) Glob Read
 ---
 
 # Dependency Scanning Skill

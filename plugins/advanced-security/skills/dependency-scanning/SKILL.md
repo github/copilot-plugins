@@ -384,27 +384,7 @@ For automated remediation, only block on **Critical** and **High** severity. Med
 
 ### Prerequisites & Inputs
 
-1. **GitHub MCP Server**: The skill requires the GitHub MCP Server with the `dependabot` toolset enabled. This repository includes a default [.mcp.json](./../../.mcp.json) configured for the GitHub MCP Server, allowing the skill to communicate with it out of the box.
-
-   Configure in your MCP settings:
-   ```json
-   {
-     "mcpServers": {
-       "github": {
-         "type": "http",
-         "url": "https://api.githubcopilot.com/mcp/"
-       }
-     }
-   }
-   ```
-
-   > **Note:** Cursor uses `servers` instead of `mcpServers` as the top-level key.
-
-**Required information for scanning**:
-- **Repository owner**: Usually available from `git remote get-url origin` or ask the user
-- **Repository name**: Usually available from `git remote get-url origin` or ask the user
-
-2. **Optional — Dependabot CLI**: Required for the Post-Commit Safety Net use case. Ask the user before downloading.
+**Optional — Dependabot CLI**: Required for the Post-Commit Safety Net use case. Ask the user before downloading.
 
    ```bash
    # Check if already installed

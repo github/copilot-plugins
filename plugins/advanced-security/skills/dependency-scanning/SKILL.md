@@ -1,16 +1,6 @@
 ---
 name: dependency-scanning
 description: Scan repository dependencies for known vulnerabilities using the GitHub MCP Server's Dependabot toolset and the GitHub Advisory Database. Use when asked to check dependency security, audit lockfiles, or verify packages before merging.
-metadata:
-  agents:
-    supported:
-      - GitHub Copilot Coding Agent
-      - Cursor
-      - Codex
-      - Claude Code
-    requires:
-      mcp_server: github
-      mcp_tool: check_dependency_vulnerabilities
 allowed-tools: Bash(git:*) Glob Grep Read
 ---
 

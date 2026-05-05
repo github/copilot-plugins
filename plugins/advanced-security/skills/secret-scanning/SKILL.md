@@ -1,16 +1,6 @@
 ---
 name: secret-scanning
 description: Scan files, content, or recent changes for secrets such as API keys, passwords, tokens, and credentials using the GitHub MCP Server's run_secret_scanning tool.
-metadata:
-  agents:
-    supported:
-      - GitHub Copilot Coding Agent
-      - Cursor
-      - Codex
-      - Claude Code
-    requires:
-      mcp_server: github
-      mcp_tool: run_secret_scanning
 allowed-tools: Bash(git:*) Glob Grep Read
 ---
 

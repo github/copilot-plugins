@@ -4,11 +4,12 @@ Security-focused plugin that brings GitHub Advanced Security capabilities into A
 
 ## What it does
 
-Advanced Security helps agents identify and prevent credential exposure during development by:
+Advanced Security helps agents identify and prevent security risks during development by:
 
 - Scanning code snippets, files, and git changes for potential secrets
 - Using GitHub secret detection patterns through MCP tooling
 - Supporting pre-commit checks to catch leaked credentials early
+- Auditing project dependencies for known CVEs and security advisories across multiple ecosystems
 
 ## Skills
 

@@ -19,4 +19,4 @@ Activated when a user asks to check code, files, or git changes for exposed cred
 
 ### `dependency-scanning`
 
-Activated when a user asks to audit dependencies, check for known vulnerabilities, or find CVEs in project packages. Automatically detects the package manager in use (npm, Yarn, pnpm, pip, Cargo, bundler, Go modules, or .NET) and runs the appropriate native audit tool to surface vulnerable packages with severity levels and remediation guidance.
+Activated when a user asks to check repository dependencies for known vulnerabilities. Uses the GitHub MCP Server's Dependabot toolset along with the GitHub Advisory Database to audit lockfiles and verify that packages are free from known security issues before merging code.

@@ -35,7 +35,92 @@
       "skills": [
         "./skills/secret-scanning",
         "./skills/dependency-scanning"
-      ]
+
+      ],
+      "mcpServers": ".mcp.json"
+    },
+    {
+      "name": "fabric-skills",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/skills-for-fabric",
+        "path": "plugins/fabric-skills"
+      },
+      "description": "Complete bundle: all Microsoft Skills for Fabric for developers and consumers.",
+      "version": "0.3.0",
+      "repository": "https://github.com/microsoft/skills-for-fabric",
+      "keywords": [
+        "fabric",
+        "microsoft-fabric",
+        "medallion",
+        "data-warehouse",
+        "lakehouse",
+        "analytics",
+        "kql",
+        "kusto",
+        "eventhouse",
+        "real-time-intelligence"
+      ],
+      "license": "MIT"
+    },
+    {
+      "name": "fabric-authoring",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/skills-for-fabric",
+        "path": "plugins/fabric-authoring"
+      },
+      "description": "Developer skills for authoring Microsoft Fabric solutions - SDKs, APIs, automation scripts, CI/CD.",
+      "version": "0.3.0",
+      "repository": "https://github.com/microsoft/skills-for-fabric",
+      "keywords": [
+        "fabric",
+        "microsoft-fabric",
+        "authoring",
+        "developer",
+        "sdk",
+        "api"
+      ],
+      "license": "MIT"
+    },
+    {
+      "name": "fabric-consumption",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/skills-for-fabric",
+        "path": "plugins/fabric-consumption"
+      },
+      "description": "Consumer skills for interactive Microsoft Fabric operations - queries, exploration, monitoring.",
+      "version": "0.3.0",
+      "repository": "https://github.com/microsoft/skills-for-fabric",
+      "keywords": [
+        "fabric",
+        "microsoft-fabric",
+        "consumption",
+        "query",
+        "exploration"
+      ],
+      "license": "MIT"
+    },
+    {
+      "name": "fabric-operations",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/skills-for-fabric",
+        "path": "plugins/fabric-operations"
+      },
+      "description": "Operations skills for diagnosing Microsoft Fabric performance and health - system views, multi-step investigation workflows.",
+      "version": "0.3.0",
+      "repository": "https://github.com/microsoft/skills-for-fabric",
+      "keywords": [
+        "fabric",
+        "microsoft-fabric",
+        "operations",
+        "monitoring",
+        "diagnostics",
+        "performance"
+      ],
+      "license": "MIT"
     }
   ]
 }

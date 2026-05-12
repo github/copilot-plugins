@@ -1,387 +1,433 @@
 ---
 name: dependency-scanning
-description: Scan project dependencies for known CVEs and security vulnerabilities using ecosystem-native audit tools (npm audit, yarn audit, pnpm audit, pip-audit, cargo audit, govulncheck, bundler-audit, dotnet list package).
-metadata:
-  agents:
-    supported:
-      - GitHub Copilot Coding Agent
-      - Cursor
-      - Codex
-      - Claude Code
-allowed-tools: Bash(npm:*) Bash(yarn:*) Bash(pnpm:*) Bash(pip-audit:*) Bash(cargo:*) Bash(govulncheck:*) Bash(bundler-audit:*) Bash(dotnet:*) Bash(git:*) Bash(gh:*) Bash(curl:*) Glob Read
+description: Scan repository dependencies for known vulnerabilities using the GitHub MCP Server's Dependabot toolset and the GitHub Advisory Database. Use when asked to check dependency security, audit lockfiles, or verify packages before merging.
+allowed-tools: Bash Glob Grep Read
 ---
 
-# Dependency Scanning Skill
+# Dependency Vulnerability Scanning Skill
 
 ## Overview
 
-This skill detects known CVEs and security vulnerabilities in project dependencies by running the audit tool native to each package ecosystem. It supports JavaScript, Python, Rust, Ruby, Go, and .NET projects -- including multi-ecosystem monorepos.
+This skill uses the GitHub MCP Server's Dependabot toolset and the `check_dependency_vulnerabilities` tool to find known vulnerabilities in project dependencies. It can check existing Dependabot alerts, look up specific packages, and verify new dependencies before merging.
 
-### What counts as a vulnerable dependency?
+### What counts as a dependency vulnerability?
 
-A dependency is flagged when it has a publicly disclosed vulnerability that is catalogued in a security advisory database (the National Vulnerability Database, GitHub Advisory Database, OSV, RustSec Advisory Database, etc.).
-
-Treat these as actionable findings:
-
-- **Critical / High severity**: Actively exploitable vulnerabilities, remote code execution, privilege escalation. Prioritise these.
-- **Moderate severity**: Vulnerabilities with limited exploitability, denial-of-service, or that require specific preconditions.
-- **Low / Informational severity**: Minor issues, speculative attack vectors, or things requiring local access. Still worth reviewing but lower urgency.
-
-Not every flagged package represents actual risk to the project. Context matters:
-
-- A vulnerability in a **dev-only** dependency that never runs in production carries much lower risk.
-- A vulnerability requiring **specific user input or environment conditions** may not be reachable in the current application.
-- Some advisories are **disputed or already mitigated** upstream -- check the advisory link before escalating.
+Dependency vulnerabilities are known security flaws (CVEs) in third-party packages your project depends on. Examples include:
+- Outdated npm packages with remote code execution flaws
+- Python libraries with SQL injection vulnerabilities
+- Go modules with denial-of-service weaknesses
+- Ruby gems with authentication bypass issues
+- Transitive dependencies inheriting upstream vulnerabilities
 
 ### Why this is important
 
-Supply-chain attacks and dependency vulnerabilities are one of the most common entry points for security incidents. Running a dependency audit regularly -- and especially before releases -- helps catch known bad versions early, when the fix is simply upgrading a package.
+A single vulnerable dependency can allow remote code execution in your application, enable denial-of-service attacks, expose sensitive data through library flaws, fail compliance audits (SOC 2, PCI-DSS, HIPAA), or introduce supply chain attack vectors.
 
-**Important**: Only run this skill when the user explicitly asks to scan dependencies or check for vulnerabilities. Do not trigger it as part of unrelated general workflows.
-
-## Ecosystem Support
-
-| Ecosystem        | Lock / manifest file(s)                                       | Audit tool              | Availability                       |
-| ---------------- | ------------------------------------------------------------- | ----------------------- | ---------------------------------- |
-| npm              | `package-lock.json`, `npm-shrinkwrap.json`                    | `npm audit`             | Built-in (npm >= 6)                 |
-| Yarn Classic (v1) | `yarn.lock` (no `.yarnrc.yml`)                               | `yarn audit`            | Built-in                           |
-| Yarn Berry (v2+) | `yarn.lock` + `.yarnrc.yml`                                   | `yarn npm audit`        | Built-in                           |
-| pnpm             | `pnpm-lock.yaml`                                              | `pnpm audit`            | Built-in                           |
-| Python           | `Pipfile.lock`, `pyproject.toml`, `requirements*.txt`         | `pip-audit`             | Install: `pip install pip-audit`   |
-| Rust             | `Cargo.lock`                                                  | `cargo audit`           | Install: `cargo install cargo-audit` |
-| Ruby             | `Gemfile.lock`                                                | `bundler-audit`         | Install: `gem install bundler-audit` |
-| Go               | `go.sum`                                                      | `govulncheck`           | Install: `go install golang.org/x/vuln/cmd/govulncheck@latest` |
-| .NET             | `*.csproj`, `*.sln`, `packages.config`                        | `dotnet list package`   | Built-in (.NET SDK >= 6)            |
+**Important**: Only use this skill when a user explicitly asks to check dependencies or scan for vulnerabilities. Do not run dependency scanning unprompted or as part of general workflows.
 
 ## Common Scenarios
 
-| User goal                                           | How to respond                                                    |
-| --------------------------------------------------- | ----------------------------------------------------------------- |
-| "Scan my project for vulnerabilities"               | Auto-detect ecosystem(s), run audit, report findings              |
-| "Check npm dependencies for CVEs"                   | Run `npm audit --json`, parse and report                          |
-| "Are there any critical vulnerabilities?"           | Run audit, filter for critical/high severity, surface those first |
-| "How do I fix the vulnerabilities you found?"       | Show the fix command (e.g. `npm audit fix`) per finding           |
-| "Scan only production dependencies"                 | Pass `--production` / `--prod` flag where supported               |
+| User goal | How to respond | Tools needed |
+|---|---|---|
+| Check existing alerts | Check Dependabot Alerts | MCP only |
+| Check a specific package | Look Up a Specific Package | MCP only |
+| Verify new deps before pushing | Scan Local Branch Changes | Bash + MCP |
+| Full dependency audit | Audit All Dependencies | Bash + MCP |
+| Deterministic post-commit check | Post-Commit Safety Net | `dependabot` CLI + MCP |
 
-## Detecting the Ecosystem
+**Lightweight vs. heavyweight operations**: For lightweight operations (checking alerts, looking up a package), proceed automatically. For heavyweight operations (downloading the Dependabot CLI, running a full repository audit), ask the user for confirmation before proceeding.
 
-Before running any audit, use `Glob` to identify which ecosystems are present. A project may have multiple.
+### Check Dependabot Alerts
+
+**When to use**: The repository is hosted on GitHub and has Dependabot enabled.
+
+**How**:
+
+List all open alerts:
 
 ```
-Detection order (check all, not just the first match):
-1. package-lock.json or npm-shrinkwrap.json  -> npm
-2. yarn.lock + .yarnrc.yml present           -> Yarn Berry (v2+): yarn npm audit
-   yarn.lock without .yarnrc.yml             -> Yarn Classic (v1): yarn audit
-3. pnpm-lock.yaml                            -> pnpm
-4. Cargo.lock                                -> cargo audit
-5. Gemfile.lock                              -> bundler-audit
-6. go.sum                                    -> govulncheck
-7. Pipfile.lock / pyproject.toml / requirements*.txt -> pip-audit
-8. *.csproj / *.sln / packages.config        -> dotnet list package --vulnerable
+Use the list_dependabot_alerts tool:
+  owner: <repo-owner>
+  repo: <repo-name>
+  state: open
 ```
 
-If multiple ecosystems are detected, run each audit in turn and aggregate the results. Monorepos with workspaces are common -- run from the relevant workspace root if applicable.
+This returns all open Dependabot alerts including package name, ecosystem, severity, CVE identifiers, and patched version (if available).
 
-## Running the Audit
+Get details on a specific alert:
 
-### JavaScript -- npm
+```
+Use the get_dependabot_alert tool:
+  owner: <repo-owner>
+  repo: <repo-name>
+  alert_number: <number>
+```
+
+This returns the vulnerability description, CVSS score, affected version range, fixed version, and advisory links.
+
+**Fallback**: If Dependabot is not enabled on the repository, fall back to "Look Up a Specific Package" below.
+
+**Example (vulnerabilities found)**
+```
+You: Check my repo for dependency vulnerabilities
+Agent: Fetching Dependabot alerts...
+       Found 3 open alerts:
+       1. Critical — lodash@4.17.15 (CVE-2021-23337: Command Injection) → Fix: 4.17.21
+       2. High — express@4.17.1 (CVE-2024-29041: Open Redirect) → Fix: 4.18.2
+       3. Medium — axios@0.21.1 (CVE-2021-3749: ReDoS) → Fix: 0.21.2
+```
+
+**Example (no alerts)**
+```
+You: Check my repo for dependency vulnerabilities
+Agent: Fetching Dependabot alerts...
+       ✅ No open Dependabot alerts found for this repository.
+```
+
+### Look Up a Specific Package
+
+**When to use**: Checking a specific package/version before adding it, or when Dependabot is not available.
+
+**How**: Use the `check_dependency_vulnerabilities` tool with a single dependency:
+
+```
+Use the check_dependency_vulnerabilities tool:
+  owner: <repo-owner>
+  repo: <repo-name>
+  dependencies:
+    - name: <package-name>
+      version: <version>
+      ecosystem: <ecosystem>
+```
+
+Supported ecosystem values: `npm`, `pip`, `maven`, `nuget`, `composer`, `pub`, `actions`, `bundler`, `gomod`, `cargo`, `hex`, `swift`.
+
+The tool checks for high-severity, critical-severity, and malware advisories in the GitHub Advisory Database.
+
+**Example**:
+```
+You: Is lodash 4.17.15 safe to use?
+Agent: ⚠️ lodash@4.17.15 has 1 known vulnerability:
+       - CVE-2021-23337 (Critical): Command Injection via template function
+         Fixed in: 4.17.21 — Recommendation: Update to lodash>=4.17.21
+```
+
+### Scan Local Branch Changes
+
+**When to use**: The current branch adds or updates dependencies and you want to check them before pushing.
+
+**Steps**:
+1. Detect which dependency files changed on this branch
+2. For each changed manifest/lockfile, parse the new or updated dependencies
+3. Check them with `check_dependency_vulnerabilities` (batch up to 30 per call)
+
+**Step 1 — Detect changed dependency files**:
 
 ```bash
-npm audit --json 2>/dev/null
+# Check which dependency files changed on the current branch vs base
+# Filter out vendor, build, and generated directories
+git diff --name-only origin/main...HEAD \
+  | grep -v -E '(^|/)vendor/' \
+  | grep -v -E '(^|/)node_modules/' \
+  | grep -v -E '(^|/)(build|dist|out|target)/' \
+  | grep -E \
+  '(package\.json|package-lock\.json|yarn\.lock|pnpm-lock\.yaml|requirements\.txt|Pipfile\.lock|poetry\.lock|pyproject\.toml|setup\.py|go\.mod|go\.sum|Gemfile|Gemfile\.lock|Cargo\.toml|Cargo\.lock|pom\.xml|build\.gradle|build\.gradle\.kts|.*\.csproj|packages\.config|composer\.json|composer\.lock|pubspec\.yaml|pubspec\.lock|Package\.swift|Package\.resolved)'
 ```
 
-To auto-fix non-breaking upgrades:
+If no dependency files changed, no further scanning is needed — exit early.
+
+**Example (clean)**
+```
+You: Check if the new dependencies on this branch are safe
+Agent: Scanning package-lock.json changes...
+       ✅ All new dependencies are clean — no known vulnerabilities found.
+```
+
+**Example (vulnerabilities found)**
+```
+You: Check if the new dependencies on this branch are safe
+Agent: Scanning package-lock.json changes...
+       ⚠️ Found 1 vulnerability in newly added dependencies:
+       - lodash@4.17.15: Critical — CVE-2021-23337 (Command Injection) → Fix: 4.17.21
+```
+
+### Audit All Dependencies
+
+**When to use**: Running a full supply chain security audit of the entire project.
+
+> **Ask the user for confirmation before proceeding.** Example: "This will scan all dependency files in the repository. For large projects this may take a few minutes. Would you like me to proceed?"
+
+**Step 1 — Discover all dependency files**:
+
+**Supported ecosystems and manifest files**:
+- **npm**: `package.json`, `package-lock.json`, `yarn.lock`, `pnpm-lock.yaml`
+- **pip**: `requirements.txt`, `Pipfile.lock`, `poetry.lock`, `pyproject.toml`, `setup.py`
+- **Go**: `go.mod`, `go.sum`
+- **RubyGems**: `Gemfile`, `Gemfile.lock`
+- **Rust**: `Cargo.toml`, `Cargo.lock`
+- **Maven**: `pom.xml`, `build.gradle`, `build.gradle.kts`
+- **NuGet**: `*.csproj`, `packages.config`, `*.deps.json`
+- **Composer**: `composer.json`, `composer.lock`
+- **Pub**: `pubspec.yaml`, `pubspec.lock`
+- **Swift**: `Package.swift`, `Package.resolved`
+
+Search up to 4 directories deep, excluding `node_modules/`, `.git/`, and `vendor/`.
+
+**Step 2 — Parse and check dependencies**:
+
+For each discovered manifest/lockfile, parse the dependency names, versions, and ecosystem, then check them with `check_dependency_vulnerabilities` (batch up to 30 per call):
+
+```
+Use the check_dependency_vulnerabilities tool:
+  owner: <repo-owner>
+  repo: <repo-name>
+  dependencies:
+    - name: <package-1>
+      version: <version-1>
+      ecosystem: <ecosystem>
+    - name: <package-2>
+      version: <version-2>
+      ecosystem: <ecosystem>
+    ...
+```
+
+Map manifest files to ecosystem values: `package.json`/`yarn.lock`/`pnpm-lock.yaml` → `npm`, `requirements.txt`/`Pipfile.lock`/`poetry.lock`/`pyproject.toml` → `pip`, `go.mod`/`go.sum` → `gomod`, `Gemfile`/`Gemfile.lock` → `bundler`, `Cargo.toml`/`Cargo.lock` → `cargo`, `pom.xml`/`build.gradle` → `maven`, `*.csproj`/`packages.config` → `nuget`, `composer.json`/`composer.lock` → `composer`, `pubspec.yaml`/`pubspec.lock` → `pub`, `Package.swift`/`Package.resolved` → `swift`.
+
+**Example**
+```
+You: Audit all dependencies in this repository for security issues
+Agent: Discovering dependency files...
+       Found: package-lock.json, poetry.lock, go.sum
+       Scan Results:
+       - npm: 2 vulnerabilities (1 high, 1 medium)
+       - pip: 0 vulnerabilities
+       - Go: 1 vulnerability (1 low)
+       Total: 3 vulnerabilities across 3 ecosystems
+```
+
+### Post-Commit Safety Net (Advanced)
+
+**When to use**: After the agent commits changes, before merge — a deterministic backstop that ensures nothing slips through.
+
+> **If the Dependabot CLI is not already installed, ask the user before downloading it.** Example: "This check requires the Dependabot CLI (~50MB). Would you like me to download and install it?"
+
+#### Pipeline Architecture
+
+```
+┌──────────────────────────────┐
+│  1. Detect Changed Manifests │  From git diff; filter vendor/build
+└──────────────┬───────────────┘
+               ▼
+┌──────────────────────────────┐
+│  2. Build Dependency Graphs  │  Base + HEAD using `dependabot graph`
+└──────────────┬───────────────┘
+               ▼
+┌──────────────────────────────┐
+│  3. Diff Dependency Graphs   │  Find newly added/updated direct deps
+└──────────────┬───────────────┘
+               ▼
+┌──────────────────────────────────────────────┐
+│  4. check_dependency_vulnerabilities tool    │  Query GitHub Advisory Database
+└──────────────┬───────────────────────────────┘
+               ▼
+┌──────────────────────────────┐
+│  5. Report & Re-iterate      │  Report vulns; agent iterates to fix
+└──────────────────────────────┘
+```
+
+#### Step 1: Detect Changed Manifest/Lockfiles
+
+Use the same `git diff` command from "Scan Local Branch Changes" above. If no dependency files changed, exit early.
+
+#### Step 2: Build Before/After Dependency Graphs
+
+Map changed files to Dependabot CLI ecosystem values (using the ecosystem table in "Audit All Dependencies" above — e.g., `package.json` → `npm_and_yarn`, `go.mod` → `go_modules`, `Gemfile` → `bundler`).
 
 ```bash
-npm audit fix
+ECOSYSTEM="npm_and_yarn"  # set based on the mapping table above
+
+# Use a git worktree to get the base commit without modifying the working tree
+git worktree add /tmp/base-ref origin/main --detach 2>/dev/null
+
+# Build dependency graph at the base commit (before changes)
+dependabot graph $ECOSYSTEM /tmp/base-ref --output=/tmp/before-deps.json
+
+# Build dependency graph at current HEAD (after changes)
+dependabot graph $ECOSYSTEM . --output=/tmp/after-deps.json
+
+# Clean up the worktree
+git worktree remove /tmp/base-ref 2>/dev/null
 ```
 
-To fix breaking upgrades (bumps major versions -- review carefully):
+> **Note:** Replace `origin/main` with your base branch. You can extract `<owner>/<repo>` from your git remote: `git remote get-url origin | sed -E 's|.*github\.com[:/]([^/]+/[^/]+?)(\.git)?$|\1|'`
+
+#### Step 3: Diff New/Updated Dependencies
+
+The `dependabot graph` output is a JSON object with a `dependencies` array. Each entry has `name`, `version`, and `relationship` (`"direct"` or `"transitive"`).
 
 ```bash
-npm audit fix --force
+python3 -c "
+import json
+
+# Load before/after dependency graphs produced by 'dependabot graph'
+with open('/tmp/before-deps.json') as f:
+    before_data = json.load(f)
+with open('/tmp/after-deps.json') as f:
+    after_data = json.load(f)
+
+# Extract direct dependencies from the graph output
+def get_direct_deps(data):
+    deps = {}
+    for dep in data.get('dependencies', []):
+        if dep.get('relationship') == 'direct':
+            deps[dep['name']] = dep['version']
+    return deps
+
+before = get_direct_deps(before_data)
+after = get_direct_deps(after_data)
+
+# Find new or version-changed direct dependencies
+changed = []
+for name, version in after.items():
+    if name not in before:
+        changed.append({'name': name, 'version': version, 'change': 'added'})
+    elif before[name] != version:
+        changed.append({'name': name, 'version': version, 'change': f'updated from {before[name]}'})
+
+print(json.dumps(changed, indent=2))
+print(f'\n{len(changed)} direct dependencies added or updated')
+"
 ```
 
-To scan production dependencies only:
+#### Step 4: Check Against Advisory Database
 
-```bash
-npm audit --json --production 2>/dev/null
-```
-
-### JavaScript -- Yarn Classic (v1)
-
-```bash
-yarn audit --json 2>/dev/null
-```
-
-Yarn v1 does not have an automatic fix command; fix by upgrading specific packages in `package.json`.
-
-### JavaScript -- Yarn Berry (v2+)
-
-```bash
-yarn npm audit --json 2>/dev/null
-```
-
-### JavaScript -- pnpm
-
-```bash
-pnpm audit --json 2>/dev/null
-```
-
-To fix:
-
-```bash
-pnpm audit --fix
-```
-
-To scan production dependencies only:
-
-```bash
-pnpm audit --json --prod 2>/dev/null
-```
-
-### Python -- pip-audit
-
-```bash
-pip-audit -f json 2>/dev/null
-```
-
-If `pip-audit` is not installed, inform the user:
-
-> `pip-audit` is not installed. Install it with: `pip install pip-audit`
-
-To scan a specific requirements file:
-
-```bash
-pip-audit -f json -r requirements.txt 2>/dev/null
-```
-
-### Rust -- cargo audit
-
-```bash
-cargo audit --json 2>/dev/null
-```
-
-If `cargo audit` is not installed, inform the user:
-
-> `cargo audit` is not installed. Install it with: `cargo install cargo-audit`
-
-To fix (updates `Cargo.toml` where possible):
-
-```bash
-cargo audit fix
-```
-
-### Ruby -- bundler-audit
-
-First update the advisory database, then scan:
-
-```bash
-bundler-audit update && bundler-audit check --format json 2>/dev/null
-```
-
-If `bundler-audit` is not installed, inform the user:
-
-> `bundler-audit` is not installed. Install it with: `gem install bundler-audit`
-
-### Go -- govulncheck
-
-```bash
-govulncheck -json ./... 2>/dev/null
-```
-
-If `govulncheck` is not installed, inform the user:
-
-> `govulncheck` is not installed. Install it with: `go install golang.org/x/vuln/cmd/govulncheck@latest`
-
-### .NET -- dotnet list package
-
-```bash
-dotnet list package --vulnerable 2>/dev/null
-```
-
-For JSON output (.NET SDK >= 8):
-
-```bash
-dotnet list package --vulnerable --format json 2>/dev/null
-```
-
----
-
-## Presenting Results
-
-Structure your report clearly. Lead with a summary, then detail each finding.
-
-### Summary line (always show)
+Feed the changed dependencies from Step 3 into the `check_dependency_vulnerabilities` tool (batch up to 30 per call):
 
 ```
-Dependency scan complete -- X vulnerabilities found (A critical, B high, C moderate, D low)
+Use the check_dependency_vulnerabilities tool:
+  owner: <repo-owner>
+  repo: <repo-name>
+  dependencies:
+    - name: <changed-dep-1>
+      version: <version>
+      ecosystem: <ecosystem>
+    - name: <changed-dep-2>
+      version: <version>
+      ecosystem: <ecosystem>
+    ...
 ```
 
-If nothing is found:
+Map the Dependabot CLI ecosystem to `check_dependency_vulnerabilities` ecosystem values: `npm_and_yarn` → `npm`, `pip` → `pip`, `go_modules` → `gomod`, `bundler` → `bundler`, `cargo` → `cargo`, `maven` → `maven`, `nuget` → `nuget`, `composer` → `composer`, `pub` → `pub`, `swift` → `swift`.
+
+#### Step 5: Report Vulnerabilities and Re-Iterate
+
+If vulnerabilities are found, report them back to the agent with specific remediation instructions. The agent should fix the vulnerable dependencies and the check runs again — repeating until all newly-introduced vulnerabilities are resolved.
 
 ```
-No known vulnerabilities found in your dependencies.
+Vulnerable dependencies detected in your changes:
+
+1. lodash@4.17.15 (added in package.json)
+   - GHSA-35jh-r3h4-6jhm: Command Injection (Critical, CVSS 9.8)
+   - Fixed in: 4.17.21
+   - Action: Update to lodash@4.17.21 in package.json
+
+2. requests@2.25.0 (added in requirements.txt)
+   - GHSA-j8r2-6x86-q33q: Proxy-Authorization header leak (Medium, CVSS 6.1)
+   - Fixed in: 2.31.0
+   - Action: Update to requests>=2.31.0 in requirements.txt
+
+Please fix these vulnerabilities and commit the changes. The check will re-run automatically.
 ```
 
-### Per-finding format
+> **Key insight**: Running this as a *post-result* hook (after the agent commits) is more reliable than a pre-commit hook. Pre-commit hooks cause agents to add warnings to the PR description rather than actually fixing the vulnerability.
 
-For each vulnerability, show:
-
+**Example**
 ```
-[SEVERITY] package-name@affected-version
-  CVE: CVE-YYYY-NNNNN (or advisory ID)
-  Description: <one-line summary>
-  Fix: Upgrade to package-name@fixed-version
-  Advisory: <URL if available>
-```
-
-### Severity ordering
-
-Always present findings in this order: **Critical -> High -> Moderate -> Low -> Informational**
-
-### Example output (npm)
-
-```
-Dependency scan complete -- 3 vulnerabilities found (1 critical, 1 high, 1 moderate)
-
-[CRITICAL] lodash@4.17.15
-  CVE: CVE-2021-23337
-  Description: Command injection via template
-  Fix: npm audit fix  (upgrades to lodash@4.17.21)
-  Advisory: https://github.com/advisories/GHSA-35jh-r3h4-6jhm
-
-[HIGH] axios@0.21.0
-  CVE: CVE-2021-3749
-  Description: Inefficient regular expression complexity
-  Fix: npm audit fix  (upgrades to axios@0.21.2)
-  Advisory: https://github.com/advisories/GHSA-cph5-m8f7-6c5x
-
-[MODERATE] glob-parent@3.1.0
-  CVE: CVE-2020-28469
-  Description: Regular expression denial of service
-  Fix: npm audit fix  (upgrades to glob-parent@5.1.2)
-  Advisory: https://github.com/advisories/GHSA-ww39-953v-wcq6
-
-Tip: Run `npm audit fix` to automatically resolve all 3 issues.
+[Agent finishes work and commits changes]
+Hook: Detecting changed dependency files...
+      Changed: package-lock.json
+      Building dependency graphs with `dependabot graph`...
+      3 direct dependencies added: lodash (new) 4.17.15, axios 0.21.1→1.6.0, express 4.17.1→4.18.2
+      1 vulnerability found — requesting agent fix:
+      - Critical — lodash@4.17.15 (GHSA-35jh-r3h4-6jhm: Command Injection → Fix: 4.17.21)
+Agent: Updating package.json to use lodash@4.17.21... ✅ Fixed. Committing changes.
+Hook: ✅ All newly-introduced dependencies are clean.
 ```
 
-### Example output (no vulnerabilities)
+## Reporting Results
 
-```
-No known vulnerabilities found in your npm dependencies.
-   Scanned: 312 packages (189 direct, 123 transitive)
-```
+The `check_dependency_vulnerabilities` tool returns a formatted report with ✓/⚠ per dependency, GHSA IDs, severity, and summaries. Present this output directly to the user, supplemented with remediation guidance.
 
----
+### Severity Legend
 
-## Handling Errors and Edge Cases
+| Severity | CVSS Score | Action |
+|----------|-----------|--------|
+| Critical | 9.0–10.0 | Fix immediately |
+| High | 7.0–8.9 | Fix as soon as possible |
+| Medium | 4.0–6.9 | Schedule fix |
+| Low | 0.1–3.9 | Track and fix when convenient |
 
-| Situation                                              | What to do                                                                                       |
-| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| Audit tool not installed                               | Inform the user and provide the install command. Do not silently skip.                           |
-| No lock file found                                     | Inform the user: "No lock file detected. Run the package manager install command first."         |
-| `npm audit` returns exit code 1 (vulnerabilities exist)| This is expected -- parse the JSON output normally.                                               |
-| Network error / registry unreachable                   | Report the error and suggest retrying or checking connectivity.                                  |
-| Production-only scan requested                         | Use `--production` / `--prod` flags where supported; note in the report which scope was scanned. |
-| `yarn audit` exits non-zero even with no issues        | Check the JSON output; a non-zero exit alone is not sufficient to indicate vulnerabilities.       |
-| `govulncheck` output references only stdlib            | Mention that no third-party vulnerabilities were found but stdlib entries exist.                  |
+For automated remediation, only block on **Critical** and **High** severity. Medium and low issues should be reported but should not block the agent's work. Focus remediation on direct dependencies (listed in manifests). Transitive dependencies require updating the parent to a version that pulls in the patched transitive dep, or adding `resolutions` (Yarn), `overrides` (npm), or equivalent. For each vulnerability, provide the exact package and target version, the fix command, any breaking-change warnings, and a mitigation if no patch exists.
 
----
 
-## Remediation Guidance
+## Installation
 
-After reporting findings, always include the appropriate fix command(s):
+### Prerequisites & Inputs
 
-| Ecosystem        | Fix command                                                               |
-| ---------------- | ------------------------------------------------------------------------- |
-| npm              | `npm audit fix` (or `npm audit fix --force` for breaking changes)         |
-| Yarn Classic     | Manually update `package.json` and re-run `yarn install`                  |
-| Yarn Berry       | `yarn up <package>`                                                        |
-| pnpm             | `pnpm audit --fix` or `pnpm update <package>`                             |
-| Python           | `pip install --upgrade <package>`                                         |
-| Rust             | `cargo update <package>` or `cargo audit fix`                             |
-| Ruby             | `bundle update <gem>`                                                      |
-| Go               | `go get <module>@<fixed-version>` + `go mod tidy`                         |
-| .NET             | `dotnet add package <package> --version <fixed-version>`                  |
+1. **GitHub MCP Server**: The skill requires the GitHub MCP Server with the `dependabot` toolset enabled. This repository includes a default [.mcp.json](./../../.mcp.json) configured for the GitHub MCP Server, allowing the skill to communicate with it out of the box.
 
-If a fix is not yet available (no patched version released), clearly state:
+   Configure in your MCP settings:
+   ```json
+   {
+     "mcpServers": {
+       "github": {
+         "type": "http",
+         "url": "https://api.githubcopilot.com/mcp/"
+       }
+     }
+   }
+   ```
 
-> Warning: No fix is currently available for `package@version`. Consider evaluating whether this package can be replaced, isolated, or whether the vulnerable code path is reachable in your project.
+   > **Note:** Cursor uses `servers` instead of `mcpServers` as the top-level key.
 
----
+**Required information for scanning**:
+- **Repository owner**: Usually available from `git remote get-url origin` or ask the user
+- **Repository name**: Usually available from `git remote get-url origin` or ask the user
 
-## Scope and Limitations
+2. **Optional — Dependabot CLI**: Required for the Post-Commit Safety Net use case. Ask the user before downloading.
 
-- This skill runs **locally** using the audit tools available in the development environment. It does not require GitHub credentials or network access to GitHub (though some tools query external advisory databases).
-- Results reflect the **advisory databases** used by each tool at the time of the scan. Keep audit tools and their databases up to date for best coverage.
-- This skill does **not** modify any files automatically unless the user explicitly asks for a fix. Always confirm before running a destructive fix command.
-- **Dev dependencies**: By default, scan all dependencies including dev. If the user only wants production scope, pass the appropriate flag and note it in the report.
+   ```bash
+   # Check if already installed
+   which dependabot 2>/dev/null && dependabot --version
 
-## Optional: Dependabot Alerts (GitHub repositories)
+   # Install via Go
+   go install github.com/dependabot/cli/cmd/dependabot@latest
 
-If the project lives on GitHub and the user wants to cross-reference local audit results with what GitHub already knows, you can pull open Dependabot alerts directly. This is optional -- run it only when the user asks, or to enrich a local scan.
+   # Or download a prebuilt binary from GitHub releases (Linux/macOS/Windows, amd64/arm64)
+   # https://github.com/dependabot/cli/releases
+   PLATFORM="linux"   # or "darwin" or "windows"
+   ARCH="amd64"       # or "arm64"
+   VERSION=$(curl -s https://api.github.com/repos/dependabot/cli/releases/latest | grep tag_name | cut -d '"' -f4)
+   curl -fsSL -o dependabot.tar.gz \
+     "https://github.com/dependabot/cli/releases/download/${VERSION}/dependabot-${VERSION}-${PLATFORM}-${ARCH}.tar.gz"
+   tar xzf dependabot.tar.gz
+   chmod +x dependabot
+   mv dependabot /usr/local/bin/
+   ```
 
-### Prerequisites
+## Scanning Transparency
 
-- The repository must have **Dependabot alerts** enabled (Settings -> Code security -> Dependabot alerts).
-- You need either the **GitHub CLI** (`gh`) authenticated, or a token with `security_events` scope (or `repo` for private repos).
+### How your data is processed
 
-Infer `{owner}` and `{repo}` from `git remote get-url origin` if not provided by the user.
-
-### Via GitHub CLI
-
-```bash
-gh api repos/{owner}/{repo}/dependabot/alerts \
-  --paginate \
-  --jq '.[] | select(.state=="open") | {severity: .security_vulnerability.severity, package: .security_vulnerability.package.name, affected: .security_vulnerability.vulnerable_version_range, fixed_in: .security_vulnerability.first_patched_version.identifier, summary: .security_advisory.summary, url: .html_url}'
-```
-
-To surface only critical and high alerts:
-
-```bash
-gh api repos/{owner}/{repo}/dependabot/alerts \
-  --paginate \
-  --jq '[.[] | select(.state=="open" and (.security_vulnerability.severity == "critical" or .security_vulnerability.severity == "high"))]'
-```
-
-### Via REST API
-
-```bash
-curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
-  "https://api.github.com/repos/{owner}/{repo}/dependabot/alerts?state=open&per_page=100"
-```
-
-### Presenting Dependabot results
-
-Clearly label alerts as coming from GitHub so the user knows the source:
-
-```
-Dependabot alerts (GitHub) -- 2 open alerts
-
-[CRITICAL] package-name (affected: < 2.0.1)
-  Fixed in: 2.0.1
-  https://github.com/{owner}/{repo}/security/dependabot/1
-
-[HIGH] another-package (affected: >= 1.0.0, < 1.4.3)
-  Fixed in: 1.4.3
-  https://github.com/{owner}/{repo}/security/dependabot/2
-```
-
-### When Dependabot alerts are unavailable
-
-If the API returns 403 or 404, inform the user:
-
-> Warning: Dependabot alerts could not be retrieved. Either the feature is not enabled for this repository, or the token lacks the `security_events` permission. Enable Dependabot alerts under **Settings -> Code security -> Dependabot alerts**.
-
----
+- **Dependabot alerts approach**: Only the repository owner/name is sent to the GitHub MCP Server. Dependency data is already stored by GitHub.
+- **Vulnerability check approach**: Package names, versions, and ecosystems are sent to the GitHub MCP Server's `check_dependency_vulnerabilities` tool, which queries the GitHub Advisory Database.
+- **Dependabot CLI approach**: Dependency information is processed locally. Network requests go to package registries.
 
 ## Learn More
-- [pnpm audit docs](https://pnpm.io/cli/audit)
-- [pip-audit on PyPI](https://pypi.org/project/pip-audit/)
-- [cargo-audit on crates.io](https://crates.io/crates/cargo-audit)
-- [bundler-audit on GitHub](https://github.com/rubysec/bundler-audit)
-- [govulncheck docs](https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck)
-- [GitHub Advisory Database](https://github.com/advisories)
-- [National Vulnerability Database (NVD)](https://nvd.nist.gov/)
-- [OSV -- Open Source Vulnerabilities](https://osv.dev/)
+
+For more details on dependency security, vulnerability scanning, and GitHub security features:
+- [GitHub Dependabot Documentation](https://docs.github.com/en/code-security/dependabot): How to configure and use Dependabot for automated dependency updates
+- [GitHub Advisory Database](https://github.com/advisories): Browse known vulnerabilities across ecosystems
+- [Dependabot CLI](https://github.com/dependabot/cli): Run Dependabot locally for offline dependency analysis
+- [GitHub MCP Server](https://github.com/github/github-mcp-server): The MCP server that powers this skill's integration
+- [GHSA (GitHub Security Advisories)](https://docs.github.com/en/code-security/security-advisories): Understanding GitHub Security Advisory identifiers

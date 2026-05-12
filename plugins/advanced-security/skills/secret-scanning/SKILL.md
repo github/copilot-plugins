@@ -1,16 +1,6 @@
 ---
 name: secret-scanning
 description: Scan files, content, or recent changes for secrets such as API keys, passwords, tokens, and credentials using the GitHub MCP Server's run_secret_scanning tool.
-metadata:
-  agents:
-    supported:
-      - GitHub Copilot Coding Agent
-      - Cursor
-      - Codex
-      - Claude Code
-    requires:
-      mcp_server: github
-      mcp_tool: run_secret_scanning
 allowed-tools: Bash(git:*) Glob Grep Read
 ---
 
@@ -58,7 +48,7 @@ This skill scans for secrets that could compromise security if leaked. A committ
 
 ### Prerequisites & Inputs
 
-**GitHub MCP Server**: The skill requires the GitHub MCP Server with the `run_secret_scanning` tool enabled.
+**GitHub MCP Server**: The skill requires the GitHub MCP Server with the `secret_protection` toolset enabled. This repository includes a default [.mcp.json](./../../.mcp.json) configured for the GitHub MCP Server, allowing the skill to communicate with it out of the box.
 
 Configure in your MCP settings:
 

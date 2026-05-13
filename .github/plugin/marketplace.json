@@ -121,6 +121,29 @@
         "performance"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "copilot-hud",
+      "source": {
+        "source": "github",
+        "repo": "griches/copilot-hud"
+      },
+      "description": "Real-time status HUD for GitHub Copilot CLI — shows project path, git branch, live context bar, tool activity, background agent tracking, and a remote-session indicator.",
+      "version": "1.2.5",
+      "repository": "https://github.com/griches/copilot-hud",
+      "keywords": [
+        "hud",
+        "statusline",
+        "copilot-cli",
+        "context",
+        "tools",
+        "agents",
+        "git"
+      ],
+      "license": "MIT",
+      "author": {
+        "name": "Gary Riches"
+      }
     }
   ]
 }

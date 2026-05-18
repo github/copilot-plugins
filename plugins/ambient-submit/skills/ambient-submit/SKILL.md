@@ -142,8 +142,7 @@ status:            pending
 If `requires_approval: true`, append:
 ```
 ⚠️  This task requires approval before execution.
-    Run: ambient approve <approval_id>
-    Or say: "approve the pending task"
+    Say: "approve the pending task"
 ```
 
 ---

@@ -27,7 +27,7 @@ Natural language in → TaskEnvelope constructed → job queued → task_id + ro
 | Variable | Default | Required |
 |----------|---------|----------|
 | `AMBIENT_API_KEY` | — | Yes — ask user if not in context |
-| `AMBIENT_BASE_URL` | `https://optimization-inversion.genesisconductor.io` | No |
+| `AMBIENT_BASE_URL` | `https://gc-ambient-gateway.iholt.workers.dev` | No |
 
 If `AMBIENT_API_KEY` is absent, tell the user: "Set `AMBIENT_API_KEY` in your environment or paste it here." Do not proceed without it.
 

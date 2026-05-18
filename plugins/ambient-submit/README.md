@@ -17,4 +17,4 @@ Activated when user says "run in background", "submit to GC", "let kiro handle",
 | Variable | Default | Required |
 |----------|---------|----------|
 | `AMBIENT_API_KEY` | — | Yes |
-| `AMBIENT_BASE_URL` | `https://gc-ambient-gateway.iholt.workers.dev` | No |
+| `AMBIENT_BASE_URL` | `https://optimization-inversion.genesisconductor.io` | No |

@@ -128,7 +128,7 @@
         "source": "github",
         "repo": "supabase-community/supabase-plugin"
       },
-      "description": "Supabase tools for GitHub Copilot — MCP server for managing your Supabase projects plus expert skills for Postgres best practices and full-stack Supabase development.",
+      "description": "Supabase tools for GitHub Copilot — MCP server for managing your Supabase projects and skills to guide you through every stage of building with Supabase.",
       "repository": "https://github.com/supabase-community/supabase-plugin",
       "keywords": [
         "supabase",

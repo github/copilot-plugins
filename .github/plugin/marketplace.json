@@ -121,6 +121,26 @@
         "performance"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "supabase",
+      "source": {
+        "source": "github",
+        "repo": "supabase-community/supabase-plugin"
+      },
+      "description": "Supabase tools for GitHub Copilot — MCP server for managing your Supabase projects and skills to guide you through every stage of building with Supabase.",
+      "repository": "https://github.com/supabase-community/supabase-plugin",
+      "keywords": [
+        "supabase",
+        "postgres",
+        "database",
+        "auth",
+        "storage",
+        "edge-functions",
+        "realtime",
+        "mcp"
+      ],
+      "license": "MIT"
     }
   ]
 }

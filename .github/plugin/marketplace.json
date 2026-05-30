@@ -121,6 +121,30 @@
         "performance"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "armorcopilot",
+      "source": {
+        "source": "github",
+        "repo": "armoriq/armorCopilot",
+        "path": "plugins/armorcopilot",
+        "ref": "v0.1.0"
+      },
+      "description": "Intent-based security policy and audit for GitHub Copilot CLI and VS Code agent mode. Hooks every tool call against a declared intent plan and natural-language policy rules; blocks intent drift; ships signed audit logs.",
+      "version": "0.1.0",
+      "repository": "https://github.com/armoriq/armorCopilot",
+      "homepage": "https://docs.armoriq.ai/armorcopilot",
+      "keywords": [
+        "security",
+        "policy",
+        "audit",
+        "intent",
+        "armoriq",
+        "mcp",
+        "hooks",
+        "github-copilot"
+      ],
+      "license": "MIT"
     }
   ]
 }

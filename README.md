@@ -15,6 +15,7 @@ Extend the power of GitHub Copilot with MCP servers, skills, hooks, and other ex
 
 This marketplace also references plugins hosted in other repositories:
 
+- **[TypeUI](https://github.com/bergside/typeui)** — `typeui`. Connects GitHub Copilot in VS Code to TypeUI for curated design systems, UI prompts, and layout variations.
 - **[Microsoft Skills for Fabric](https://github.com/microsoft/skills-for-fabric)** — `fabric-skills`, `fabric-authoring`, `fabric-consumption`, `fabric-operations`. Skills and agents for Microsoft Fabric (Lakehouse, Warehouse, Power BI, Eventhouse, Eventstream, Dataflows, Spark).
 
 ## 🤝 Contributing

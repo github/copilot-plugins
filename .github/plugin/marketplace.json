@@ -121,6 +121,26 @@
         "performance"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "aspm-security-skills",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/security-devops-common",
+        "path": "plugin/aspm-security-skills"
+      },
+      "description": "ASPM security skills. Brings ASPM intelligence into your developer workflow. Skills that scan, generate, and remediate code securely",
+      "version": "0.1.1",
+      "repository": "https://github.com/microsoft/security-devops-common",
+      "keywords": [
+        "security",
+        "defender",
+        "aspm",
+        "scanning",
+        "sarif",
+        "devsecops"
+      ],
+      "license": "MIT"
     }
   ]
 }

@@ -121,6 +121,29 @@
         "performance"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "powerbi-authoring",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/skills-for-fabric",
+        "path": "plugins/powerbi-authoring"
+      },
+      "description": "Developer skills for authoring Microsoft Power BI solutions.",
+      "version": "0.3.3",
+      "repository": "https://github.com/microsoft/skills-for-fabric",
+      "keywords": [
+        "fabric",
+        "microsoft-fabric",
+        "authoring",
+        "powerbi",
+        "semantic-model",
+        "pbip",
+        "pbir",
+        "report",
+        "developer"
+      ],
+      "license": "MIT"
     }
   ]
 }

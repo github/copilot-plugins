@@ -17,7 +17,7 @@ This marketplace also references plugins hosted in other repositories:
 
 - **[Advanced Security](https://github.com/github/copilot-advanced-security-plugin)** — Access to GitHub Advanced Security capabilities such as dependency scanning and secret scanning.
 
-- **[Microsoft Skills for Fabric](https://github.com/microsoft/skills-for-fabric)** — `fabric-skills`, `fabric-authoring`, `fabric-consumption`, `fabric-operations`. Skills and agents for Microsoft Fabric (Lakehouse, Warehouse, Power BI, Eventhouse, Eventstream, Dataflows, Spark).
+- **[Microsoft Skills for Fabric](https://github.com/microsoft/skills-for-fabric)** — `fabric-skills`, `fabric-authoring`, `fabric-consumption`, `fabric-operations`, `powerbi-authoring`. Skills and agents for Microsoft Fabric (Lakehouse, Warehouse, Power BI, Eventhouse, Eventstream, Dataflows, Spark).
 
 ## 🤝 Contributing
 

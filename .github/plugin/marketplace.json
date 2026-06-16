@@ -210,6 +210,28 @@
         "developer"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "datadog",
+      "description": "Use Datadog directly in VS Code through a preconfigured Datadog MCP server. Query logs, metrics, traces, dashboards, and more through natural conversation.",
+      "version": "0.7.13",
+      "author": {
+        "name": "Datadog",
+        "url": "https://www.datadoghq.com"
+      },
+      "homepage": "https://github.com/datadog-labs/vscode-plugin",
+      "keywords": [
+        "datadog",
+        "infrastructure",
+        "mcp",
+        "observability",
+        "productivity"
+      ],
+      "repository": "https://github.com/datadog-labs/vscode-plugin",
+      "source": {
+        "source": "github",
+        "repo": "datadog-labs/vscode-plugin"
+      }
     }
   ]
 }

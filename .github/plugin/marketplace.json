@@ -425,6 +425,39 @@
         "flowagent"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "netlify",
+      "source": {
+        "source": "github",
+        "repo": "netlify/context-and-tools"
+      },
+      "description": "Netlify platform skills — functions, edge functions, blobs, database, identity, image CDN, forms, config, CLI, frameworks, caching, AI Gateway, and deployment — plus the official Netlify MCP server for creating and managing projects, deploys, and environment variables.",
+      "version": "1.1.0",
+      "author": {
+        "name": "Netlify",
+        "url": "https://www.netlify.com"
+      },
+      "homepage": "https://www.netlify.com",
+      "repository": "https://github.com/netlify/context-and-tools",
+      "keywords": [
+        "netlify",
+        "deployment",
+        "serverless",
+        "functions",
+        "edge-functions",
+        "blobs",
+        "database",
+        "forms",
+        "image-cdn",
+        "caching",
+        "ai-gateway",
+        "mcp",
+        "identity",
+        "frameworks",
+        "cli"
+      ],
+      "license": "MIT"
     }
   ]
 }

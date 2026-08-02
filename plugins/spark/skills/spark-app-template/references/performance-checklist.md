@@ -316,6 +316,112 @@ import { Home, Settings } from 'lucide-react';
 
 ### Dynamic Import Strategy
 
+Eliminate unnecessary bundle bloat by strategically using dynamic imports and avoiding patterns that break tree-shaking. Following these rules typically yields ~20–40% smaller bundles.
+
+1) Why barrel exports prevent tree-shaking
+
+- Problem: `export * from './X'` (barrel) re-exports everything. When you import from the barrel, bundlers may resolve the whole module graph and include unused exports, preventing fine-grained tree-shaking.
+
+  Bad (barrel):
+  ```ts
+  // components/index.ts
+  export * from './Button';
+  export * from './Chart';
+
+  // Usage
+  import { Chart } from 'components';
+  // Bundler may include Button and other exports even if unused
+  ```
+
+  Good: import from file path or use explicit named re-exports
+  ```ts
+  // Usage (direct):
+  import Chart from 'components/Chart';
+
+  // Or explicit re-export (safe):
+  // components/index.ts
+  export { default as Chart } from './Chart';
+  ```
+
+2) lucide-react icons — use named imports only
+
+- Never use `import * as Icons from 'lucide-react'` — that imports the whole icon set and defeats tree-shaking. Always import only the icons you use.
+
+  Bad:
+  ```tsx
+  import * as Icons from 'lucide-react';
+  export const Nav = () => <Icons.Home />;
+  ```
+
+  Good (tree-shakable):
+  ```tsx
+  import { Home, Settings } from 'lucide-react';
+  export const Nav = () => <Home />;
+  ```
+
+3) Proper imports for custom components (avoid bloat)
+
+- Prefer importing directly from the component file for app-level imports. If an index file is required, re-export explicitly (named exports), not `export *`.
+
+  Bad (may bloat):
+  ```ts
+  // components/index.ts
+  export * from './Button';
+  export * from './RichTextEditor';
+
+  // Anywhere
+  import { RichTextEditor } from 'components';
+  // Might pull in Button, Editor dependencies, etc.
+  ```
+
+  Good:
+  ```ts
+  // Import directly
+  import RichTextEditor from 'components/RichTextEditor';
+
+  // Or explicit index re-exports
+  // components/index.ts
+  export { default as RichTextEditor } from './RichTextEditor';
+  ```
+
+4) Dynamic imports for heavy features (charts, editors, PDF, code editors)
+
+- Defer heavy code until needed using dynamic imports. This reduces initial bundle and speeds up first paint.
+
+  Component-level (React.lazy + Suspense):
+  ```tsx
+  import { lazy, Suspense } from 'react';
+  const HeavyChart = lazy(() => import('./HeavyChart'));
+
+  function Dashboard() {
+    return (
+      <Suspense fallback={<ChartSkeleton />}>
+        <HeavyChart data={data} />
+      </Suspense>
+    );
+  }
+  ```
+
+  Imperative/on-demand (utilities or APIs):
+  ```ts
+  async function handleExport() {
+    const { exportToPDF } = await import('./export-utils');
+    exportToPDF(data);
+  }
+  ```
+
+Practical tips
+
+- Audit bundles with visualizer to confirm reductions.
+- Prefer named exports for small modules.
+- Avoid large barrels at app entry points; keep them confined to dev tooling or CLI layers.
+- Combine dynamic imports with route-based splitting for maximum effect.
+
+Expected impact: 20–40% smaller initial bundles when applied consistently across icons, component imports, and heavy features.
+
+
+### Dynamic Import Strategy
+
 Eliminate unnecessary bundle bloat by strategically using dynamic imports and avoiding barrel exports. This approach can reduce bundle size by **20-40%**.
 
 #### Problem: Barrel Exports & Tree-Shaking

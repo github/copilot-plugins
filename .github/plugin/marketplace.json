@@ -447,6 +447,31 @@
         "flowagent"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "postbridge",
+      "description": "Postal execution layer: quote, send, track, and prove physical letters from any AI agent. Remote MCP server (Streamable HTTP) with subscription-backed API-key auth, plus skills for send/track/proof workflows.",
+      "version": "0.1.0",
+      "author": {
+        "name": "PostBridge",
+        "url": "https://postbridge.ai"
+      },
+      "homepage": "https://postbridge.ai",
+      "keywords": [
+        "postal",
+        "mail",
+        "letters",
+        "certified-mail",
+        "proof-of-delivery",
+        "postbridge",
+        "mcp"
+      ],
+      "license": "MIT",
+      "repository": "https://github.com/PostbridgeAI/postbridge-agent-plugin",
+      "source": {
+        "source": "github",
+        "repo": "PostbridgeAI/postbridge-agent-plugin"
+      }
     }
   ]
 }

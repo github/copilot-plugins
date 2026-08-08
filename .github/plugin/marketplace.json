@@ -447,6 +447,30 @@
         "flowagent"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "copilot-remote-control",
+      "source": {
+        "source": "github",
+        "repo": "Anchras/terminalbox-tools",
+        "path": "plugins/copilot-remote-control"
+      },
+      "description": "Configure and verify GitHub Copilot CLI remote control, choose a bounded keep-alive policy, and decide whether the session can stay local or needs a persistent host.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Terminalbox",
+        "url": "https://terminalbox.ai"
+      },
+      "homepage": "https://terminalbox.ai/github-copilot-cli-remote-control?source=copilot_plugin_marketplace",
+      "repository": "https://github.com/Anchras/terminalbox-tools",
+      "keywords": [
+        "github-copilot",
+        "copilot-cli",
+        "remote-control",
+        "github-mobile",
+        "persistent-workspace"
+      ],
+      "license": "MIT"
     }
   ]
 }

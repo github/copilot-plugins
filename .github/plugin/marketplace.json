@@ -453,10 +453,12 @@
       "source": {
         "source": "github",
         "repo": "Anchras/terminalbox-tools",
-        "path": "plugins/copilot-remote-control"
+        "path": "plugins/copilot-remote-control",
+        "ref": "v0.6.0",
+        "sha": "e54ac34abe48a1cd18e745d16513048d2a11e3c1"
       },
-      "description": "Configure and verify GitHub Copilot CLI remote control, choose a bounded keep-alive policy, and decide whether the session can stay local or needs a persistent host.",
-      "version": "0.1.0",
+      "description": "Configure GitHub Copilot CLI remote control and choose between local, GitHub cloud sandbox, and persistent-host execution.",
+      "version": "0.2.0",
       "author": {
         "name": "Terminalbox",
         "url": "https://terminalbox.ai"
@@ -468,6 +470,7 @@
         "copilot-cli",
         "remote-control",
         "github-mobile",
+        "cloud-sandbox",
         "persistent-workspace"
       ],
       "license": "MIT"

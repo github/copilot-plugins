@@ -23,7 +23,7 @@ This marketplace also references plugins hosted in other repositories:
 
 - **[Power Platform Skills](https://github.com/microsoft/power-platform-skills)** — `power-pages`, `model-apps`, `mcp-apps`, `canvas-apps`, `code-apps-preview`, `mobile-app`, `power-automate`. Plugins for Power Platform development (Power Pages sites, model-driven and canvas apps, code apps, MCP App widgets, mobile apps, and Power Automate cloud flows).
 
-- **[GitHub Copilot CLI Remote Control](https://github.com/Anchras/terminalbox-tools/tree/v0.5.0/plugins/copilot-remote-control)** — `copilot-remote-control`. A source-visible, local-first skill for configuring and verifying Copilot CLI remote control, with an optional paid persistent host when a local machine cannot stay online.
+- **[GitHub Copilot CLI Remote Control](https://github.com/Anchras/terminalbox-tools/tree/v0.6.0/plugins/copilot-remote-control)** — `copilot-remote-control`. A source-visible skill that compares local execution, GitHub cloud sandboxes, an existing persistent host, and new paid hosting in that order.
 
 ## 🤝 Contributing
 

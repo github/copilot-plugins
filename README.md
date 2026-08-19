@@ -23,6 +23,8 @@ This marketplace also references plugins hosted in other repositories:
 
 - **[Power Platform Skills](https://github.com/microsoft/power-platform-skills)** — `power-pages`, `model-apps`, `mcp-apps`, `canvas-apps`, `code-apps-preview`, `mobile-app`, `power-automate`. Plugins for Power Platform development (Power Pages sites, model-driven and canvas apps, code apps, MCP App widgets, mobile apps, and Power Automate cloud flows).
 
+- **[SandBase Research](https://github.com/sandbaseai/sandbase-skills/tree/0ff6bfd67332b620937d781d0cb81447cfd72a1d/agent-plugin)** — Bounded multi-source research with independent-source validation and an offline evidence ledger; works with host-provided search tools without requiring a SandBase account.
+
 ## 🤝 Contributing
 
 We'd love your contributions! Please read our [Contributing Guide](CONTRIBUTING.md) for details on how to submit pull requests.

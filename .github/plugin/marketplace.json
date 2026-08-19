@@ -87,6 +87,30 @@
       }
     },
     {
+      "name": "sandbase-research",
+      "description": "Run bounded multi-source research with independent-source validation and an offline evidence ledger.",
+      "version": "0.1.0",
+      "author": {
+        "name": "SandBase AI",
+        "url": "https://github.com/sandbaseai"
+      },
+      "homepage": "https://github.com/sandbaseai/sandbase-skills",
+      "keywords": [
+        "agent-skills",
+        "fact-checking",
+        "multi-source-research",
+        "evidence-led-research"
+      ],
+      "license": "Apache-2.0",
+      "repository": "https://github.com/sandbaseai/sandbase-skills",
+      "source": {
+        "source": "github",
+        "repo": "sandbaseai/sandbase-skills",
+        "path": "agent-plugin",
+        "sha": "0ff6bfd67332b620937d781d0cb81447cfd72a1d"
+      }
+    },
+    {
       "name": "spark",
       "source": "./plugins/spark",
       "description": "Spark plugin for GitHub Copilot.",

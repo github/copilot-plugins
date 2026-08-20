@@ -23,7 +23,7 @@ This marketplace also references plugins hosted in other repositories:
 
 - **[Power Platform Skills](https://github.com/microsoft/power-platform-skills)** — `power-pages`, `model-apps`, `mcp-apps`, `canvas-apps`, `code-apps-preview`, `mobile-app`, `power-automate`. Plugins for Power Platform development (Power Pages sites, model-driven and canvas apps, code apps, MCP App widgets, mobile apps, and Power Automate cloud flows).
 
-- **[SandBase Harness](https://github.com/sandbaseai/sandbase-harness/tree/841ac14e1b5a37b52a97d89eebe19c030ee4f1c6/agent-plugin)** — Connect coding agents to an existing SandBase Harness runtime for isolated execution, session management, and observability through its MCP server.
+- **[SandBase Harness](https://github.com/sandbaseai/sandbase-harness/tree/3f0532765c9e43df13bc285622d3e84783002ad0/agent-plugin)** — Connect coding agents to an existing SandBase Harness runtime for isolated execution, session management, and observability through its MCP server.
 
 ## 🤝 Contributing
 

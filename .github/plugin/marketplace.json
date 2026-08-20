@@ -87,6 +87,30 @@
       }
     },
     {
+      "name": "sandbase-harness",
+      "description": "Connect coding agents to a SandBase Harness runtime for isolated execution, session management, and observability.",
+      "version": "0.1.0",
+      "author": {
+        "name": "SandBase AI",
+        "url": "https://github.com/sandbaseai"
+      },
+      "homepage": "https://github.com/sandbaseai/sandbase-harness",
+      "keywords": [
+        "agent-harness",
+        "mcp",
+        "sandbox",
+        "observability"
+      ],
+      "license": "Apache-2.0",
+      "repository": "https://github.com/sandbaseai/sandbase-harness",
+      "source": {
+        "source": "github",
+        "repo": "sandbaseai/sandbase-harness",
+        "path": "agent-plugin",
+        "sha": "65ce225d01f56b5584d833af6b1afcc119dfd323"
+      }
+    },
+    {
       "name": "spark",
       "source": "./plugins/spark",
       "description": "Spark plugin for GitHub Copilot.",

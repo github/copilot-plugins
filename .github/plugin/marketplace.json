@@ -447,6 +447,110 @@
         "flowagent"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "block-destructive-commands",
+      "description": "Best-effort guard against destructive commands: rm -rf targeting absolute, home, or root-adjacent paths; git push --force (not --force-with-lease); git reset --hard; git clean -f; kubectl delete; terraform destroy. Known bypass classes include aliases, quoted arguments, non-standard clients, and scripts that invoke these commands indirectly. This is friction, not a security boundary. [Session-enforced via a PreToolUse hook; needs python3 and a usable bash. Without them, fail-open clients allow silently; fail-closed clients refuse matched commands. On Windows, disable the python3 Store alias or install Python.]",
+      "version": "0.0.6",
+      "author": {
+        "name": "open-coder-ai",
+        "url": "https://github.com/open-coder-ai"
+      },
+      "homepage": "https://github.com/open-coder-ai/chock",
+      "keywords": [
+        "chock",
+        "policy-as-code",
+        "security",
+        "guardrail",
+        "block-destructive-commands"
+      ],
+      "license": "Apache-2.0",
+      "repository": "https://github.com/open-coder-ai/chock-copilot-plugins",
+      "source": {
+        "source": "github",
+        "repo": "open-coder-ai/chock-copilot-plugins",
+        "path": "claude/block-destructive-commands",
+        "ref": "v0.3.0",
+        "sha": "f17de7924f33c32fe3075a63c79312df015b4e06"
+      }
+    },
+    {
+      "name": "block-no-verify",
+      "description": "Best-effort guard against bypassing git hooks via git commit/push --no-verify, commit's short -n form, or -c core.hooksPath overrides. On git push, -n means --dry-run and stays allowed. Known bypass classes include aliases, wrapper scripts, and non-standard clients. Fix the underlying hook failure instead of skipping validation. [Session-enforced via a PreToolUse hook; needs python3 and a usable bash. Without them, fail-open clients allow silently; fail-closed clients refuse matched commands. On Windows, disable the python3 Store alias or install Python.]",
+      "version": "0.0.4",
+      "author": {
+        "name": "open-coder-ai",
+        "url": "https://github.com/open-coder-ai"
+      },
+      "homepage": "https://github.com/open-coder-ai/chock",
+      "keywords": [
+        "chock",
+        "policy-as-code",
+        "security",
+        "guardrail",
+        "block-no-verify"
+      ],
+      "license": "Apache-2.0",
+      "repository": "https://github.com/open-coder-ai/chock-copilot-plugins",
+      "source": {
+        "source": "github",
+        "repo": "open-coder-ai/chock-copilot-plugins",
+        "path": "claude/block-no-verify",
+        "ref": "v0.3.0",
+        "sha": "f17de7924f33c32fe3075a63c79312df015b4e06"
+      }
+    },
+    {
+      "name": "protect-agent-config",
+      "description": "Guard against an agent hand-editing its own guardrails. Agent instruction files (AGENTS.md and the per-agent wrappers), permission files (.claude/settings.json, .mcp.json) and vendored enforcement (.chock/bin/, .chock/compiled/) define what the agent may do -- so a shell command that rewrites them is the agent modifying its own authority (MITRE ATLAS AML.T0081; the AIVSS self-modification factor). The guard refuses shell write-commands targeting those paths; reads pass, and regeneration through `chock sync` passes because the tool writes them itself rather than through shell editing. Best-effort and deliberately coarse: a compound command that both reads a protected file and writes elsewhere may be refused -- rewrite it in two steps. The 'chock: approved-config-change' escape marker is friction plus an audit trail, not authentication -- the agent can write it too; the check an agent cannot self-approve is the commit-time gate and CI. [Session-enforced via a PreToolUse hook; needs python3 and a usable bash. Without them, fail-open clients allow silently; fail-closed clients refuse matched commands. On Windows, disable the python3 Store alias or install Python.]",
+      "version": "0.0.4",
+      "author": {
+        "name": "open-coder-ai",
+        "url": "https://github.com/open-coder-ai"
+      },
+      "homepage": "https://github.com/open-coder-ai/chock",
+      "keywords": [
+        "chock",
+        "policy-as-code",
+        "security",
+        "guardrail",
+        "protect-agent-config"
+      ],
+      "license": "Apache-2.0",
+      "repository": "https://github.com/open-coder-ai/chock-copilot-plugins",
+      "source": {
+        "source": "github",
+        "repo": "open-coder-ai/chock-copilot-plugins",
+        "path": "claude/protect-agent-config",
+        "ref": "v0.3.0",
+        "sha": "f17de7924f33c32fe3075a63c79312df015b4e06"
+      }
+    },
+    {
+      "name": "protect-commit-privacy",
+      "description": "Keep the development conversation out of git history. Agent-authored commits narrate by default -- who asked for what, which discussion decided it, what the plan was -- and on a public repo that narration is published forever. The guard refuses git commit commands whose message (inline -m/--message or the file behind -F/--file) contains process-leak markers; the rule tells the agent to describe the change, not the conversation, and to propose sensitive messages to the human before committing. Best-effort: markers are a narrow deny-list, and a message the human explicitly approves can say anything -- edit the marker list in the guard, the content is yours. [Session-enforced via a PreToolUse hook; needs python3 and a usable bash. Without them, fail-open clients allow silently; fail-closed clients refuse matched commands. On Windows, disable the python3 Store alias or install Python.]",
+      "version": "0.0.2",
+      "author": {
+        "name": "open-coder-ai",
+        "url": "https://github.com/open-coder-ai"
+      },
+      "homepage": "https://github.com/open-coder-ai/chock",
+      "keywords": [
+        "chock",
+        "policy-as-code",
+        "security",
+        "guardrail",
+        "protect-commit-privacy"
+      ],
+      "license": "Apache-2.0",
+      "repository": "https://github.com/open-coder-ai/chock-copilot-plugins",
+      "source": {
+        "source": "github",
+        "repo": "open-coder-ai/chock-copilot-plugins",
+        "path": "claude/protect-commit-privacy",
+        "ref": "v0.3.0",
+        "sha": "f17de7924f33c32fe3075a63c79312df015b4e06"
+      }
     }
   ]
 }

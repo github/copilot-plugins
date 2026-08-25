@@ -25,6 +25,8 @@ This marketplace also references plugins hosted in other repositories:
 
 - **[Power Platform Skills](https://github.com/microsoft/power-platform-skills)** — `power-pages`, `model-apps`, `mcp-apps`, `canvas-apps`, `code-apps-preview`, `mobile-app`, `power-automate`. Plugins for Power Platform development (Power Pages sites, model-driven and canvas apps, code apps, MCP App widgets, mobile apps, and Power Automate cloud flows).
 
+- **[Xquik X Twitter Scraper](https://github.com/Xquik-dev/x-twitter-scraper)** — `x-twitter-scraper`. Agent Skills and a hosted MCP server for structured X/Twitter search, account research, exports, monitoring, webhooks, media downloads, and confirmation-gated actions.
+
 ## 🤝 Contributing
 
 We'd love your contributions! Please read our [Contributing Guide](CONTRIBUTING.md) for details on how to submit pull requests.

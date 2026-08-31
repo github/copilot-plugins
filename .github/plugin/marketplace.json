@@ -409,6 +409,30 @@
         "flowagent"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "calllint",
+      "description": "Preflight risk linting for MCP & agent tools. Before you add or edit an agent-tool config, CallLint recommends scanning the blast radius — SAFE / REVIEW / BLOCK / UNKNOWN with evidence. Advisory and non-blocking; never executes the server it judges.",
+      "version": "0.1.0",
+      "author": {
+        "name": "saintL",
+        "url": "https://calllint.com"
+      },
+      "homepage": "https://calllint.com",
+      "keywords": [
+        "mcp",
+        "security",
+        "audit",
+        "preflight",
+        "agent-tools"
+      ],
+      "license": "Apache-2.0",
+      "repository": "https://github.com/calllint/calllint",
+      "source": {
+        "source": "github",
+        "repo": "calllint/calllint",
+        "path": "plugins/calllint"
+      }
     }
   ]
 }

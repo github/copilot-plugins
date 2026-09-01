@@ -39,12 +39,13 @@ $vcperf = if ($vcperfPkg) { (Get-ChildItem $vcperfPkg.FullName -Recurse -Filter 
 
 ### Invocation rule (read before running any vcperf command)
 
-Every `vcperf` command below runs the resolved `$vcperf` path directly in PowerShell (`& $vcperf ...`). Both rules are mandatory:
+Every `vcperf` command below runs the resolved `$vcperf` path through `cmd.exe`. All three rules are mandatory:
 
 1. **Use the absolute `$vcperf` path, never a bare `vcperf`.** Bare `vcperf` resolves off `PATH` to the older Visual-Studio-bundled copy (may lack `/jsonAnalysis`), not the one under `%LOCALAPPDATA%\vcperf\build-perf-cpp`.
-2. **Judge success by the output file, not `$LASTEXITCODE`.** PowerShell's `& $vcperf` can surface an internal COM `HRESULT` (e.g. `0x80040013`) in `$LASTEXITCODE` and render output as blank lines, so a run that actually succeeded can look failed. After a `/stop` or `/stopnoanalyze`, confirm the expected `.etl`/`.json` file was written (`Test-Path`) instead of trusting the exit code.
+2. **Invoke via `cmd.exe`, not `& $vcperf` directly.** Direct PowerShell invocation can surface an internal COM `HRESULT` instead of vcperf's true exit code. `cmd.exe` makes `$LASTEXITCODE` reliable.
+3. **Gate the workflow on `/start`.** Never run the build, `/stop`, or `/stopnoanalyze` unless `/start` returned exit code `0`. After a successful start, `/stop` may still run when the build fails so the partial trace is preserved.
 
-The command blocks in [Prerequisites](#prerequisites-trace-permission) and [Core Workflow](#core-workflow) below apply both rules — follow their exact form.
+The command blocks in [Prerequisites](#prerequisites-trace-permission) and [Core Workflow](#core-workflow) below apply all three rules — follow their exact form.
 
 ## What is vcperf?
 
@@ -103,30 +104,28 @@ If the user answers **No**, stop the workflow. Report that vcperf cannot run wit
 
 ### Step 3 — Grant rights elevated
 
-Launch an elevated PowerShell that runs `vcperf /grantusercontrol` and wait for it. The grant produces no output artifact, so Step 4 verifies it functionally:
+Launch an elevated `cmd.exe` that runs `vcperf /grantusercontrol`, wait for it, and capture its real exit code:
 
 ```powershell
 # $vcperf must already hold the absolute path (see resolution block above).
-# /grantusercontrol writes no output file, so Step 4 verifies it functionally;
-# we don't depend on vcperf's exit code here (see Invocation rule).
 try {
-    Start-Process powershell.exe `
-        -ArgumentList '-NoProfile','-Command',"& '$vcperf' /grantusercontrol" `
-        -Verb RunAs -Wait
-    $grantCancelled = $false
+    $proc = Start-Process $env:ComSpec `
+        -ArgumentList '/d', '/c', "`"$vcperf`" /grantusercontrol" `
+        -Verb RunAs -Wait -PassThru
+    $grantExit = $proc.ExitCode
 } catch [System.ComponentModel.Win32Exception] {
     if ($_.Exception.NativeErrorCode -eq 1223) {
         # Win32 error 1223 = ERROR_CANCELLED — user dismissed the UAC prompt.
-        $grantCancelled = $true
+        $grantExit = 1223
     } else {
         throw
     }
 }
-$grantCancelled
+$grantExit
 ```
 
 - A UAC dialog will appear. If the user cancels it, `Start-Process -Verb RunAs` throws `Win32Exception` with `NativeErrorCode = 1223` — treat that as "user declined" and stop (same outcome as a "No" in Step 2).
-- Otherwise the elevated grant ran. Its exit code is not reliable (see Invocation rule), so **Step 4 is the authoritative check** that the grant actually worked — proceed there.
+- Exit code `0` means the grant command succeeded; any other non-zero code means it failed. Step 4 still verifies the grant functionally.
 
 ### Step 4 — Verify the grant worked
 
@@ -136,12 +135,19 @@ Do not trust Step 3 alone — run a functional probe. Use `/stopnoanalyze` (not 
 $probe   = 'PermProbe_' + [guid]::NewGuid().ToString('N').Substring(0,8)
 $probeEtl = Join-Path $env:TEMP "$probe.etl"
 Remove-Item $probeEtl -ErrorAction SilentlyContinue
-# Success signal is whether the probe ETL is produced, not $LASTEXITCODE
-# (see Invocation rule). A working /start + /stopnoanalyze writes the ETL;
-# if /start was denied, no ETL appears.
-$startOutput = (& $vcperf /start /noadmin $probe *>&1 | Out-String).Trim()
-$stopOutput = (& $vcperf /stopnoanalyze $probe $probeEtl *>&1 | Out-String).Trim()
-$started = Test-Path $probeEtl
+$startCmd = "`"$vcperf`" /start /noadmin $probe"
+
+$startOutput = (& $env:ComSpec /d /s /c "`"$startCmd`"" 2>&1 | Out-String).Trim()
+
+$startExit = $LASTEXITCODE
+$stopOutput = ''
+if ($startExit -eq 0) {
+    $stopCmd = "`"$vcperf`" /stopnoanalyze $probe `"$probeEtl`""
+
+    $stopOutput = (& $env:ComSpec /d /s /c "`"$stopCmd`"" 2>&1 | Out-String).Trim()
+
+}
+$started = ($startExit -eq 0) -and (Test-Path $probeEtl)
 if (-not $started) {
     $probeOutput = @($startOutput, $stopOutput) | Where-Object { $_ }
     Write-Error ("vcperf permission probe failed.`n" + ($probeOutput -join "`n"))
@@ -180,7 +186,7 @@ When starting the tracing session:
 
 There are three phases: **start** a trace, **build** your project, then **stop** and **analyze** to produce results.
 
-> Below, `vcperf` is shorthand for the resolved `$vcperf` absolute path run directly in PowerShell (`& $vcperf ...`), per the [Invocation rule](#invocation-rule-read-before-running-any-vcperf-command). Never run a bare `vcperf` (it hits the VS-bundled copy on `PATH`), and judge success by the output file rather than `$LASTEXITCODE`.
+> Below, `vcperf` is shorthand for the resolved `$vcperf` absolute path invoked through `cmd.exe`, per the [Invocation rule](#invocation-rule-read-before-running-any-vcperf-command). Never run a bare `vcperf`, and never invoke `/stop` unless the corresponding `/start` returned exit code `0`.
 
 ### 1. Start a tracing session
 
@@ -233,15 +239,19 @@ From a CLI agent or any interactive workflow, **chain `/start → build → /sto
 
 **PowerShell with MSBuild (single invocation — recommended):**
 ```powershell
-# $vcperf holds the absolute path resolved earlier. Run as one scriptblock so
-# /start -> build -> /stop execute back-to-back with no timing gaps. Judge trace
-# success by the output files (Test-Path), not $LASTEXITCODE (see Invocation rule).
+# $vcperf holds the absolute path resolved earlier. /start is invoked through
+# cmd.exe so its true exit code gates both the build and /stop.
 
 $buildExit = & {
-    & $vcperf /start /noadmin /level3 MySession | Out-Host
+    $startOutput = (& $env:ComSpec /d /c "`"$vcperf`" /start /noadmin /level3 MySession" 2>&1 | Out-String).Trim()
+    if ($LASTEXITCODE -ne 0) {
+        throw "vcperf /start failed; build and /stop were not run.`n$startOutput"
+    }
     msbuild Project.sln /m /t:Rebuild /p:Configuration=Release | Out-Host
     $exitCode = $LASTEXITCODE
-    & $vcperf /stop /templates MySession out.etl /jsonAnalysis out.json | Out-Host
+    & $env:ComSpec /d /c "`"$vcperf`" /stop /templates MySession `"out.etl`" /jsonAnalysis `"out.json`"" | Out-Host
+    $stopExit = $LASTEXITCODE
+    if ($stopExit -ne 0) { throw "vcperf /stop failed with exit code $stopExit." }
     $exitCode
 }
 $traceOk = (Test-Path out.etl) -and (Test-Path out.json)
@@ -250,22 +260,30 @@ $traceOk = (Test-Path out.etl) -and (Test-Path out.json)
 **PowerShell with CMake (single invocation):**
 ```powershell
 $buildExit = & {
-    & $vcperf /start /noadmin /level3 MySession | Out-Host
+    $startOutput = (& $env:ComSpec /d /c "`"$vcperf`" /start /noadmin /level3 MySession" 2>&1 | Out-String).Trim()
+    if ($LASTEXITCODE -ne 0) {
+        throw "vcperf /start failed; build and /stop were not run.`n$startOutput"
+    }
     cmake --build build --target clean | Out-Host
-    cmake --build build --parallel | Out-Host
     $exitCode = $LASTEXITCODE
-    & $vcperf /stop /templates MySession out.etl /jsonAnalysis out.json | Out-Host
+    if ($exitCode -eq 0) {
+        cmake --build build --parallel | Out-Host
+        $exitCode = $LASTEXITCODE
+    }
+    & $env:ComSpec /d /c "`"$vcperf`" /stop /templates MySession `"out.etl`" /jsonAnalysis `"out.json`"" | Out-Host
+    $stopExit = $LASTEXITCODE
+    if ($stopExit -ne 0) { throw "vcperf /stop failed with exit code $stopExit." }
     $exitCode
 }
 $traceOk = (Test-Path out.etl) -and (Test-Path out.json)
 ```
-`$buildExit` is the build tool's own exit code (reliable — an ordinary process), telling you whether the build succeeded. `$traceOk` confirms vcperf actually produced the trace. The `;` sequence never short-circuits, so `/stop` always runs even if the build fails.
+`$buildExit` is the build tool's own exit code, and `$traceOk` confirms vcperf produced both outputs. The explicit start gate prevents both the build and `/stop` when `/start` fails. Once `/start` succeeds, `/stop` still runs after a build failure to preserve the partial trace.
 
 **cmd.exe alternative** (if you prefer `&&` short-circuit semantics; substitute the full path for `%VCPERF%`):
 ```cmd
 "%VCPERF%" /start /noadmin /level3 MySession && cmake --build build --target clean && cmake --build build --parallel && "%VCPERF%" /stop /templates MySession out.etl /jsonAnalysis out.json
 ```
-`&&` skips `/stop` if the build fails; replace the `&&` before the final `"%VCPERF%" /stop` with `&` to emit the trace anyway.
+This `&&` form skips `/stop` after any failure. Do not replace the final `&&` with an unguarded `&`, because that can run `/stop` even when `/start` failed. Use the gated PowerShell form above when a partial trace is required after a build failure.
 
 The same rule applies to incremental measurements (see [Iterative Build Measurement](#iterative-build-measurement)): the touch step may be a separate command, but `/start → build → /stop` must be one chained invocation.
 

@@ -409,6 +409,33 @@
         "flowagent"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "threejs-sculpt-dna",
+      "source": {
+        "source": "github",
+        "repo": "hyeonsangjeon/threejs-sculpt-dna"
+      },
+      "description": "Build verifiable modular procedural Three.js reconstructions and coverage-curated deterministic asset families from references.",
+      "version": "0.5.1",
+      "author": {
+        "name": "hyeonsangjeon",
+        "url": "https://github.com/hyeonsangjeon"
+      },
+      "homepage": "https://hyeonsangjeon.github.io/threejs-sculpt-dna/",
+      "repository": "https://github.com/hyeonsangjeon/threejs-sculpt-dna",
+      "keywords": [
+        "github-copilot",
+        "codex",
+        "threejs",
+        "procedural-3d",
+        "procedural-modeling",
+        "object-reconstruction",
+        "asset-variants",
+        "visual-regression",
+        "sculpt-dna"
+      ],
+      "license": "MIT"
     }
   ]
 }

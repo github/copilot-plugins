@@ -409,6 +409,30 @@
         "flowagent"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "sent",
+      "source": {
+        "source": "github",
+        "repo": "sentdm/sent-plugin"
+      },
+      "description": "Send customer messages over SMS, WhatsApp, and RCS, analyze delivery, manage contacts and templates, and build compliant messaging workflows with MCP-backed tools and specialist skills.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Sent",
+        "url": "https://sent.dm"
+      },
+      "homepage": "https://docs.sent.dm/start/llm-docs/mcp-server",
+      "repository": "https://github.com/sentdm/sent-plugin",
+      "keywords": [
+        "messaging",
+        "sms",
+        "whatsapp",
+        "rcs",
+        "mcp",
+        "communications"
+      ],
+      "license": "MIT"
     }
   ]
 }

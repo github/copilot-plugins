@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "imessage": {
+      "command": "python3",
+      "args": [
+        "${PLUGIN_ROOT}/server/imessage_mcp.py"
+      ],
+      "env": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "tools": [
+        "*"
+      ]
+    }
+  }
+}

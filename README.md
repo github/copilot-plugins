@@ -7,7 +7,8 @@ Extend the power of GitHub Copilot with MCP servers, skills, hooks, and other ex
 ## 🔌 What's Inside
 
 - **Skills** — Reusable prompts and workflows for common tasks
-- **MCP Servers** — Model Context Protocol servers that give Copilot new capabilities *(coming soon)*
+- **MCP Servers** — Local and remote tools, including the macOS-only
+  [iMessage plugin](plugins/imessage)
 - **Hooks** — Custom integrations and event-driven automations
 - **Extensibility Tools** — Building blocks for creating your own plugins *(coming soon)*
 
@@ -31,4 +32,6 @@ We'd love your contributions! Please read our [Contributing Guide](CONTRIBUTING.
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE). Vendored plugins may
+carry their own licenses; the iMessage plugin is distributed under
+[Apache License 2.0](plugins/imessage/LICENSE).

@@ -1,0 +1,10 @@
+This product includes software derived from the iMessage plugin in
+anthropics/claude-plugins-official, external_plugins/imessage, at commit
+c54b5608d9be1910de9a5b91c2d15bf6673b9c35.
+
+Copyright 2026 Anthropic, PBC
+
+Licensed under the Apache License, Version 2.0. The implementation was modified
+and rewritten for GitHub Copilot CLI, including Copilot-specific paths and
+configuration, a Python standard-library MCP server, explicit chat-history
+tools, and removal of upstream-specific branding and outbound signatures.

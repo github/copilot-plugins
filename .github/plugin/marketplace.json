@@ -10,6 +10,14 @@
   },
   "plugins": [
     {
+      "name": "azure",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/microsoft/GitHub-Copilot-for-Azure/tree/main/claude"
+      },
+      "description": "Azure plugin for GitHub Copilot."
+    },
+    {
       "name": "workiq",
       "description": "Query Microsoft 365 data with natural language — emails, meetings, documents, Teams messages, and more.",
       "version": "1.0.0",

@@ -409,6 +409,31 @@
         "flowagent"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "adlicio",
+      "source": {
+        "source": "github",
+        "repo": "daniel-ddtech/adlicio-plugin"
+      },
+      "description": "Customer-voice research. Scrape comments and reviews from Reddit, YouTube, Amazon, TikTok, Instagram, Trustpilot, app stores and 20+ other sources, search Reddit and YouTube, pull top-performing short videos with their on-screen hooks, find Meta Ad Library competitor ads, and build brand and voice-of-customer reports. Hosted MCP server over OAuth, no API key to paste.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Adlicio",
+        "url": "https://tryadlicio.com"
+      },
+      "homepage": "https://tryadlicio.com/mcp",
+      "repository": "https://github.com/daniel-ddtech/adlicio-plugin",
+      "keywords": [
+        "adlicio",
+        "customer-research",
+        "voice-of-customer",
+        "reviews",
+        "reddit",
+        "mcp",
+        "market-research"
+      ],
+      "license": "MIT"
     }
   ]
 }

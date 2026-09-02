@@ -409,6 +409,36 @@
         "flowagent"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "heygrc",
+      "description": "GRC compliance review for your pull requests. heyGRC reviews each PR against ISO 27001, SOC 2, GDPR, DORA, NIS 2, the EU AI Act and your own company profile, then posts inline findings, a neutral check run, and a sticky summary. Public repos are free.",
+      "version": "0.1.2",
+      "author": {
+        "name": "Better ISMS",
+        "url": "https://heygrc.com"
+      },
+      "homepage": "https://heygrc.com",
+      "keywords": [
+        "heygrc",
+        "grc",
+        "compliance",
+        "security",
+        "code-review",
+        "pull-request",
+        "iso-27001",
+        "soc-2",
+        "gdpr",
+        "eu-ai-act",
+        "dora",
+        "nis-2"
+      ],
+      "license": "MIT",
+      "repository": "https://github.com/better-isms/heygrc-plugin",
+      "source": {
+        "source": "github",
+        "repo": "better-isms/heygrc-plugin"
+      }
     }
   ]
 }

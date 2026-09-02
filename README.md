@@ -17,6 +17,8 @@ This marketplace also references plugins hosted in other repositories:
 
 - **[Advanced Security](https://github.com/github/copilot-advanced-security-plugin)** — Access to GitHub Advanced Security capabilities such as dependency scanning and secret scanning.
 
+- **[ASO Skill](https://github.com/ASO-Skill/aso-skill)** — Research current Apple App Store keywords, rankings, popularity, and competitor metadata through a secure hosted MCP connection.
+
 - **[Azure DevOps Copilot Plugin](https://github.com/microsoft/azure-devops-copilot-plugin)** — Bring Azure DevOps work-item, repository, and pull-request workflows into GitHub Copilot.
 
 - **[Microsoft Skills for Fabric](https://github.com/microsoft/skills-for-fabric)** — `fabric-skills`, `powerbi-authoring`. Skills and agents for Microsoft Fabric (Lakehouse, Warehouse, Power BI, Eventhouse, Eventstream, Dataflows, Spark).

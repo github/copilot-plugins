@@ -1,19 +1,58 @@
-{
-  "version": 1,
-  "hooks": {
-    "sessionStart": [
-      {
-        "type": "command",
-        "powershell": "./scripts/install-vcperf.ps1",
-        "timeoutSec": 120
-      }
-    ],
-    "userPromptSubmitted": [
-      {
-        "type": "command",
-        "powershell": "./scripts/write-correlation-id.ps1",
-        "timeoutSec": 5
-      }
-    ]
-  }
+# ./scripts/install-vcperf.ps1
+$ErrorActionPreference = "Stop"
+
+try {
+    Write-Host "[Gemini Hook] Checking vcperf installation..." -ForegroundColor Cyan
+
+    # ตรวจสอบว่ามี vcperf ในระบบแล้วหรือไม่
+    if (Get-Command "vcperf" -ErrorAction SilentlyContinue) {
+        Write-Host "[Gemini Hook] vcperf is already installed." -ForegroundColor Green
+        exit 0
+    }
+
+    # ตั้งค่า Path ปลายทาง
+    $installDir = "$env:LOCALAPPDATA\Microsoft\vcperf"
+    if (-not (Test-Path $installDir)) {
+        New-Item -ItemType Directory -Path $installDir -Force | Out-Null
+    }
+
+    $exePath = Join-Path $installDir "vcperf.exe"
+    $downloadUrl = "https://github.com/microsoft/vcperf/releases/latest/download/vcperf.exe"
+
+    Write-Host "[Gemini Hook] Downloading vcperf to $exePath..." -ForegroundColor Yellow
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    Invoke-WebRequest -Uri $downloadUrl -OutFile $exePath -UseBasicParsing
+
+    # เพิ่ม Path เข้า Environment ของ User หากยังไม่มี
+    $userPath = [Environment]::GetEnvironmentVariable("PATH", "User")
+    if ($userPath -notlike "*$installDir*") {
+        [Environment]::SetEnvironmentVariable("PATH", "$userPath;$installDir", "User")
+        $env:PATH += ";$installDir"
+    }
+
+    Write-Host "[Gemini Hook] vcperf installed successfully!" -ForegroundColor Green
+}
+catch {
+    Write-Error "[Gemini Hook Failed] Error installing vcperf: $_"
+    exit 1
+}
+# ./scripts/write-correlation-id.ps1
+$ErrorActionPreference = "Stop"
+
+try {
+    # สร้าง Correlation ID แบบ Unique (GUID)
+    $correlationId = [guid]::NewGuid().ToString()
+
+    # บันทิกลงไฟล์ชั่วคราวในโฟลเดอร์โปรเจกต์
+    $outputPath = Join-Path $PSScriptRoot "..\correlation-id.txt"
+    $correlationId | Out-File -FilePath $outputPath -Encoding utf8 -Force
+
+    # ตั้งค่า Environment Variable สำหรับ Process ปัจจุบัน
+    $env:CORRELATION_ID = $correlationId
+
+    Write-Host "[Gemini Hook] Generated Correlation ID: $correlationId" -ForegroundColor Cyan
+}
+catch {
+    Write-Error "[Gemini Hook Failed] Failed to write Correlation ID: $_"
+    exit 1
 }

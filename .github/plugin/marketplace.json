@@ -409,6 +409,32 @@
         "flowagent"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "zapier",
+      "source": {
+        "source": "github",
+        "repo": "zapier/zapier-mcp",
+        "path": "plugins/zapier"
+      },
+      "description": "Official plugin distribution for the hosted Zapier MCP server. Connects Copilot to thousands of apps — send messages, pull data, trigger workflows.",
+      "author": {
+        "name": "Zapier",
+        "url": "https://zapier.com"
+      },
+      "homepage": "https://github.com/zapier/zapier-mcp",
+      "repository": "https://github.com/zapier/zapier-mcp",
+      "keywords": [
+        "zapier",
+        "mcp",
+        "model-context-protocol",
+        "automation",
+        "integrations",
+        "workflow",
+        "ai-actions",
+        "no-code"
+      ],
+      "license": "MIT"
     }
   ]
 }

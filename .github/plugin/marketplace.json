@@ -409,6 +409,30 @@
         "flowagent"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "observer",
+      "description": "Watch coding agents on a local canvas and coordinate work with six employee specialties. Requires Node.js 22.5+ and one-time runtime setup.",
+      "version": "0.9.21",
+      "author": {
+        "name": "NaveDanan",
+        "url": "https://github.com/NaveDanan"
+      },
+      "homepage": "https://github.com/NaveDanan/observer-plugin",
+      "repository": "https://github.com/NaveDanan/observer-plugin",
+      "license": "MIT",
+      "keywords": [
+        "agents",
+        "observability",
+        "delegation",
+        "canvas"
+      ],
+      "source": {
+        "source": "github",
+        "repo": "NaveDanan/observer-plugin",
+        "path": "plugins/copilot/observer",
+        "sha": "78b35f09161aa8758e8510a309db3117ac3e2018"
+      }
     }
   ]
 }

@@ -409,6 +409,31 @@
         "flowagent"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "enhance",
+      "source": {
+        "source": "github",
+        "repo": "enhance-labs-builds/enhance-plugin",
+        "path": "plugins/enhance"
+      },
+      "description": "Design, edit, review and publish interactive product canvases with your agent.",
+      "version": "1.0.2",
+      "author": {
+        "name": "Enhance",
+        "email": "support@enhancelabs.ai",
+        "url": "https://enhancelabs.ai"
+      },
+      "homepage": "https://app.enhancelabs.ai/docs",
+      "repository": "https://github.com/enhance-labs-builds/enhance-plugin",
+      "keywords": [
+        "design",
+        "canvas",
+        "prototype",
+        "feedback",
+        "mcp"
+      ],
+      "license": "MIT"
     }
   ]
 }

@@ -409,6 +409,16 @@
         "flowagent"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "cratis",
+      "description": "Public Cratis skills for developers building event-sourced CQRS applications with Cratis Chronicle and Arc — vertical slices, BDD specs, and a React + Cratis Components frontend.",
+      "version": "1.0.0",
+      "author": { "name": "Cratis", "url": "https://www.cratis.io" },
+      "homepage": "https://github.com/Cratis/AI",
+      "repository": "https://github.com/Cratis/AI",
+      "license": "MIT",
+      "source": { "source": "github", "repo": "Cratis/AI", "path": "skills" }
     }
   ]
 }

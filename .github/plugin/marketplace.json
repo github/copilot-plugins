@@ -409,6 +409,30 @@
         "flowagent"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "aidelly",
+      "source": {
+        "source": "github",
+        "repo": "Aidelly/claude-plugin"
+      },
+      "description": "Create, schedule, approve, and analyze social media content across connected platforms.",
+      "version": "1.0.1",
+      "author": {
+        "name": "Aidelly",
+        "url": "https://aidelly.ai"
+      },
+      "homepage": "https://aidelly.ai",
+      "repository": "https://github.com/Aidelly/claude-plugin",
+      "keywords": [
+        "social-media",
+        "content-marketing",
+        "mcp",
+        "scheduling",
+        "analytics",
+        "approvals"
+      ],
+      "license": "MIT"
     }
   ]
 }

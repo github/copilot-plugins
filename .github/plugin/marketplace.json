@@ -409,6 +409,29 @@
         "flowagent"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "hol-guard",
+      "source": {
+        "source": "github",
+        "repo": "hashgraph-online/hol-guard-plugin"
+      },
+      "description": "Local-first AI agent security with approvals, security receipts, MCP visibility, and pre-trust scanning for skills, plugins, and MCP servers.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Hashgraph Online",
+        "url": "https://hol.org"
+      },
+      "homepage": "https://hol.org/guard",
+      "repository": "https://github.com/hashgraph-online/hol-guard-plugin",
+      "keywords": [
+        "ai-security",
+        "agent-security",
+        "mcp-security",
+        "agent-skills",
+        "supply-chain-security"
+      ],
+      "license": "Apache-2.0"
     }
   ]
 }

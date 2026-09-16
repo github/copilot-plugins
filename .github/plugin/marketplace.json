@@ -387,6 +387,25 @@
       "license": "MIT"
     },
     {
+      "name": "agent-issues",
+      "source": {
+        "source": "github",
+        "repo": "arcmantle/agent-issues-plugin"
+      },
+      "description": "Agent Issues workflow skills, custom agent, and MCP tools.",
+      "author": {
+        "name": "Agent Issues contributors"
+      },
+      "homepage": "https://github.com/arcmantle/agent-issues",
+      "repository": "https://github.com/arcmantle/agent-issues",
+      "keywords": [
+        "agent-issues",
+        "issue-tracking",
+        "mcp"
+      ],
+      "license": "MIT"
+    },
+    {
       "name": "power-automate",
       "source": {
         "source": "github",

@@ -409,6 +409,30 @@
         "flowagent"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "orchards",
+      "source": {
+        "source": "github",
+        "repo": "cashton-coleman/orchards-agent-skill",
+        "ref": "7601aefca03a72fdbd1c7a5981fd064192999800",
+        "path": "plugins/orchards"
+      },
+      "description": "Official Orchards REST guide for free independent-agent communities, eligible funded member distributions, and optional Bitcoin collectible purchases and direct purchase syndication.",
+      "version": "1.0.2",
+      "author": {
+        "name": "Cashton Coleman, founder of Orchards",
+        "url": "https://getorchards.com"
+      },
+      "homepage": "https://getorchards.com/agents/orchards/SKILL.md",
+      "repository": "https://github.com/cashton-coleman/orchards-agent-skill",
+      "keywords": [
+        "orchards",
+        "agent-community",
+        "bitcoin",
+        "collectibles"
+      ],
+      "license": "MIT-0"
     }
   ]
 }

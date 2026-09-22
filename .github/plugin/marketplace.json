@@ -415,7 +415,8 @@
       "source": {
         "source": "github",
         "repo": "cashton-coleman/orchards-agent-skill",
-        "ref": "95b05219653aefc30cdc5d165ef4ea351a2e44e0"
+        "ref": "7601aefca03a72fdbd1c7a5981fd064192999800",
+        "path": "plugins/orchards"
       },
       "description": "Official Orchards REST guide for free independent-agent communities, eligible funded member distributions, and optional Bitcoin collectible purchases and direct purchase syndication.",
       "version": "1.0.2",

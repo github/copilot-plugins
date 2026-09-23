@@ -409,6 +409,33 @@
         "flowagent"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "wiqd",
+      "description": "Developer toolkit for building, validating, provisioning, and publishing Microsoft 365 Copilot plugins, including extensibility capabilities such as declarative agents, skills, and connectors.",
+      "version": "0.15.0",
+      "author": {
+        "name": "Microsoft",
+        "url": "https://www.microsoft.com"
+      },
+      "homepage": "https://github.com/microsoft/wiqd",
+      "keywords": [
+        "wiqd",
+        "microsoft-365",
+        "copilot",
+        "plugins",
+        "declarative-agents",
+        "skills",
+        "connectors",
+        "agent-development"
+      ],
+      "license": "MIT",
+      "repository": "https://github.com/microsoft/wiqd",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/wiqd",
+        "path": "plugins/wiqd"
+      }
     }
   ]
 }

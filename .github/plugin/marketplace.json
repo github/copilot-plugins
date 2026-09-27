@@ -409,6 +409,30 @@
         "flowagent"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "vardoger",
+      "description": "Personalizes your AI assistant from local conversation history using the active host model.",
+      "version": "0.4.0",
+      "author": {
+        "name": "David Strupl",
+        "url": "https://github.com/dstrupl"
+      },
+      "homepage": "https://github.com/dstrupl/vardoger/tree/main/plugins/copilot",
+      "repository": "https://github.com/dstrupl/vardoger",
+      "keywords": [
+        "personalization",
+        "productivity",
+        "skills",
+        "local-first",
+        "conversation-history"
+      ],
+      "license": "Apache-2.0",
+      "source": {
+        "source": "github",
+        "repo": "dstrupl/vardoger",
+        "path": "plugins/copilot"
+      }
     }
   ]
 }

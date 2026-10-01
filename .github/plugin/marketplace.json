@@ -409,6 +409,30 @@
         "flowagent"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "aevral",
+      "description": "AI security review for your pull requests. Aevral reviews each PR for access control, business logic, injection, XSS, SSRF, path traversal, unsafe deserialization, token and session flaws, and LLM-integration risks, and posts each finding with a suggested fix you apply. Public repos are free.",
+      "version": "0.2.3",
+      "author": {
+        "name": "Better ISMS",
+        "url": "https://aevral.com"
+      },
+      "homepage": "https://aevral.com",
+      "keywords": [
+        "aevral",
+        "security",
+        "code-review",
+        "pull-request",
+        "ai-code-review",
+        "llm-security"
+      ],
+      "license": "MIT",
+      "repository": "https://github.com/better-isms/aevral-plugin",
+      "source": {
+        "source": "github",
+        "repo": "better-isms/aevral-plugin"
+      }
     }
   ]
 }

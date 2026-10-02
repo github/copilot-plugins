@@ -409,6 +409,31 @@
         "flowagent"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "pushary",
+      "source": {
+        "source": "github",
+        "repo": "Pushary/vscode-plugin"
+      },
+      "description": "VS Code Copilot PreToolUse permission gate that routes risky terminal commands to a phone approval before they run, plus MCP tools for the agent to ask questions and send notifications. Requires a Pushary account.",
+      "version": "0.2.4",
+      "author": {
+        "name": "Pushary",
+        "url": "https://pushary.com"
+      },
+      "homepage": "https://pushary.com",
+      "repository": "https://github.com/Pushary/vscode-plugin",
+      "keywords": [
+        "human-in-the-loop",
+        "approvals",
+        "permissions",
+        "notifications",
+        "hooks",
+        "pretooluse",
+        "mcp"
+      ],
+      "license": "MIT"
     }
   ]
 }

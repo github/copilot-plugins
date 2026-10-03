@@ -15,6 +15,8 @@ Extend the power of GitHub Copilot with MCP servers, skills, hooks, and other ex
 
 This marketplace also references plugins hosted in other repositories:
 
+- **[Magic Hour](https://github.com/magichourhq/skills)** — Media-workflow skills for creating, editing, reviewing, and finishing AI images and videos with an existing Magic Hour MCP or API connection. Generation requires account credits.
+
 - **[Advanced Security](https://github.com/github/copilot-advanced-security-plugin)** — Access to GitHub Advanced Security capabilities such as dependency scanning and secret scanning.
 
 - **[Azure DevOps Copilot Plugin](https://github.com/microsoft/azure-devops-copilot-plugin)** — Bring Azure DevOps work-item, repository, and pull-request workflows into GitHub Copilot.

@@ -1,0 +1,21 @@
+{
+  "name": "tsbd-egp-intelligence",
+  "description": "Local, evidence-first analysis of Bangladesh e-GP OTM Works award records using an explicitly configured read-only query runner.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Tender Solution BD"
+  },
+  "repository": "https://github.com/github/copilot-plugins",
+  "license": "MIT",
+  "keywords": [
+    "bangladesh",
+    "egp",
+    "tender-analysis",
+    "works",
+    "data-quality",
+    "local-analysis"
+  ],
+  "skills": [
+    "skills/"
+  ]
+}

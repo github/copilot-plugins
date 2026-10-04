@@ -118,6 +118,12 @@
       "license": "MIT"
     },
     {
+      "name": "tsbd-egp-intelligence",
+      "source": "./plugins/tsbd-egp-intelligence",
+      "description": "Local, evidence-first analysis of Bangladesh e-GP OTM Works awards using an explicitly configured read-only query runner.",
+      "version": "0.1.0"
+    },
+    {
       "name": "advanced-security",
       "source": {
         "source": "github",

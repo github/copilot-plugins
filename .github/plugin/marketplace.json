@@ -149,6 +149,33 @@
       "license": "MIT"
     },
     {
+      "name": "fixlab",
+      "source": {
+        "source": "github",
+        "repo": "MonaDevAI/FixLab"
+      },
+      "description": "Evidence-backed defect diagnosis, repair, and validation for React and .NET repositories.",
+      "version": "0.7.3",
+      "author": {
+        "name": "MonaDevAI",
+        "url": "https://github.com/MonaDevAI"
+      },
+      "homepage": "https://github.com/MonaDevAI/FixLab",
+      "repository": "https://github.com/MonaDevAI/FixLab",
+      "keywords": [
+        "testing",
+        "validation",
+        "github-copilot",
+        "ai-agent",
+        "developer-tools",
+        "react",
+        "dotnet",
+        "playwright",
+        "pull-requests"
+      ],
+      "license": "MIT"
+    },
+    {
       "name": "fabric-skills",
       "source": {
         "source": "github",
@@ -412,3 +439,5 @@
     }
   ]
 }
+
+

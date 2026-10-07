@@ -409,6 +409,31 @@
         "flowagent"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "make",
+      "description": "Build, run, and debug Make automation scenarios via the official Make MCP server.",
+      "version": "0.2.0",
+      "author": {
+        "name": "Make",
+        "url": "https://www.make.com"
+      },
+      "homepage": "https://www.make.com",
+      "repository": "https://github.com/integromat/make-skills",
+      "keywords": [
+        "make",
+        "mcp",
+        "automation",
+        "scenarios",
+        "no-code"
+      ],
+      "license": "MIT",
+      "source": {
+        "source": "github",
+        "repo": "integromat/make-skills",
+        "path": "plugins/make-skills-copilot",
+        "sha": "c65bcccb07d1a28284734d718099d36b250a792a"
+      }
     }
   ]
 }

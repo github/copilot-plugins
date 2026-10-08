@@ -411,7 +411,7 @@
       "license": "MIT"
     },
     {
-      "name": "lmcp",
+      "name": "local-mcp",
       "source": {
         "source": "github",
         "repo": "colibird-ai/local-mcp-claude-plugin"

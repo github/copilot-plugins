@@ -409,6 +409,38 @@
         "flowagent"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "local-mcp",
+      "source": {
+        "source": "github",
+        "repo": "colibird-ai/local-mcp-claude-plugin"
+      },
+      "description": "Local tools that let your AI use Mail, Calendar, Contacts, Teams, Slack, WhatsApp (Mac), OneDrive, Google Drive, Notion, Outlook (Windows) and Office files on Mac and Windows. Runs on your computer.",
+      "author": {
+        "name": "LMCP",
+        "url": "https://www.local-mcp.com"
+      },
+      "homepage": "https://www.local-mcp.com",
+      "repository": "https://github.com/colibird-ai/local-mcp-claude-plugin",
+      "keywords": [
+        "mcp",
+        "mail",
+        "calendar",
+        "contacts",
+        "teams",
+        "slack",
+        "whatsapp",
+        "onedrive",
+        "google-drive",
+        "notion",
+        "outlook",
+        "office",
+        "macos",
+        "windows",
+        "productivity"
+      ],
+      "license": "MIT"
     }
   ]
 }

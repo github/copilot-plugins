@@ -409,6 +409,29 @@
         "flowagent"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "agentery",
+      "source": {
+        "source": "github",
+        "repo": "ntlgnc/Agentery-Plugin"
+      },
+      "description": "Find suitable AI tools, agents and MCP servers for a task, compare their published prices, and check fair market prices via Agentery's hosted MCP server. No account or API key.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Agentery",
+        "url": "https://agentery.com"
+      },
+      "homepage": "https://agentery.com/connect",
+      "repository": "https://github.com/ntlgnc/Agentery-Plugin",
+      "keywords": [
+        "agentery",
+        "ai-tool-pricing",
+        "price-benchmark",
+        "software-procurement",
+        "mcp"
+      ],
+      "license": "MIT"
     }
   ]
 }

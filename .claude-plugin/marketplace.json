@@ -1,1 +1,446 @@
-../.github/plugin/marketplace.json
+{
+  "name": "copilot-plugins",
+  "metadata": {
+    "description": "GitHub Copilot plugins",
+    "version": "1.0.0"
+  },
+  "owner": {
+    "name": "GitHub",
+    "email": "copilot@github.com"
+  },
+  "plugins": [
+    {
+      "name": "workiq",
+      "description": "Query Microsoft 365 data with natural language — emails, meetings, documents, Teams messages, and more.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Microsoft",
+        "url": "https://www.microsoft.com"
+      },
+      "homepage": "https://github.com/microsoft/work-iq",
+      "keywords": [
+        "workiq",
+        "microsoft-365",
+        "m365",
+        "copilot",
+        "email",
+        "meetings",
+        "teams"
+      ],
+      "license": "MIT",
+      "repository": "https://github.com/microsoft/work-iq",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/work-iq",
+        "path": "plugins/workiq"
+      }
+    },
+    {
+      "name": "microsoft-365-agents-toolkit",
+      "description": "Toolkit for building Microsoft 365 Copilot declarative agents — scaffolding, JSON manifest development, and capability configuration.",
+      "version": "1.1.0",
+      "author": {
+        "name": "Microsoft",
+        "url": "https://www.microsoft.com"
+      },
+      "homepage": "https://github.com/microsoft/work-iq",
+      "keywords": [
+        "m365",
+        "agents",
+        "declarative-agent",
+        "copilot",
+        "teams",
+        "toolkit"
+      ],
+      "license": "MIT",
+      "repository": "https://github.com/microsoft/work-iq",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/work-iq",
+        "path": "plugins/microsoft-365-agents-toolkit"
+      }
+    },
+    {
+      "name": "workiq-productivity",
+      "description": "WorkIQ productivity skills powered by the local WorkIQ CLI — read-only insights across email, meetings, calendar, Teams, SharePoint, projects, and people.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Microsoft",
+        "url": "https://www.microsoft.com"
+      },
+      "homepage": "https://github.com/microsoft/work-iq",
+      "keywords": [
+        "workiq",
+        "productivity",
+        "email",
+        "meetings",
+        "teams",
+        "sharepoint",
+        "planner"
+      ],
+      "license": "MIT",
+      "repository": "https://github.com/microsoft/work-iq",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/work-iq",
+        "path": "plugins/workiq-productivity"
+      }
+    },
+    {
+      "name": "spark",
+      "source": "./plugins/spark",
+      "description": "Spark plugin for GitHub Copilot.",
+      "version": "1.0.0",
+      "skills": [
+        "./skills/spark"
+      ]
+    },
+    {
+      "name": "build-perf-cpp",
+      "source": "./plugins/build-perf-cpp",
+      "description": "Analyze MSVC build performance using vcperf.exe and ETL traces.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ion Todirel and Eve Silfanus",
+        "url": "https://github.com/es110"
+      },
+      "homepage": "https://github.com/github/copilot-plugins/tree/main/plugins/build-perf-cpp",
+      "repository": "https://github.com/github/copilot-plugins",
+      "keywords": [
+        "cpp",
+        "c++",
+        "msvc",
+        "vcperf",
+        "build-performance",
+        "build-insights",
+        "compile-time"
+      ],
+      "license": "MIT"
+    },
+    {
+      "name": "advanced-security",
+      "source": {
+        "source": "github",
+        "repo": "github/copilot-advanced-security-plugin"
+      },
+      "description": "Advanced Security plugin for GitHub Copilot.",
+      "version": "1.0.0",
+      "repository": "https://github.com/github/copilot-advanced-security-plugin"
+    },
+    {
+      "name": "azure-devops-copilot-plugin",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/azure-devops-copilot-plugin"
+      },
+      "description": "Bring Azure DevOps work-item, repository, and pull-request workflows into GitHub Copilot.",
+      "author": {
+        "name": "Microsoft",
+        "url": "https://www.microsoft.com"
+      },
+      "homepage": "https://github.com/microsoft/azure-devops-copilot-plugin",
+      "repository": "https://github.com/microsoft/azure-devops-copilot-plugin",
+      "keywords": [
+        "azure-devops",
+        "ado",
+        "work-items",
+        "pull-requests"
+      ],
+      "license": "MIT"
+    },
+    {
+      "name": "fabric-skills",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/skills-for-fabric",
+        "path": "plugins/fabric-skills"
+      },
+      "description": "Complete bundle: all Microsoft Skills for Fabric for developers and consumers.",
+      "version": "0.3.0",
+      "repository": "https://github.com/microsoft/skills-for-fabric",
+      "keywords": [
+        "fabric",
+        "microsoft-fabric",
+        "medallion",
+        "data-warehouse",
+        "lakehouse",
+        "analytics",
+        "kql",
+        "kusto",
+        "eventhouse",
+        "real-time-intelligence"
+      ],
+      "license": "MIT"
+    },
+    {
+      "name": "powerbi-authoring",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/skills-for-fabric",
+        "path": "plugins/powerbi-authoring"
+      },
+      "description": "Developer skills for authoring Microsoft Power BI solutions.",
+      "version": "0.3.3",
+      "repository": "https://github.com/microsoft/skills-for-fabric",
+      "keywords": [
+        "fabric",
+        "microsoft-fabric",
+        "authoring",
+        "powerbi",
+        "semantic-model",
+        "pbip",
+        "pbir",
+        "report",
+        "developer"
+      ],
+      "license": "MIT"
+    },
+    {
+      "name": "cpp-language-server",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/cpp-language-server",
+        "path": "plugins/cpp-language-server"
+      },
+      "description": "Navigate and interact with your C++ code using the Microsoft C++ Language Server.",
+      "version": "0.1.2",
+      "repository": "https://github.com/microsoft/cpp-language-server",
+      "keywords": [
+        "cpp",
+        "c++",
+        "refactoring",
+        "code-analysis",
+        "lsp",
+        "language-server"
+      ],
+      "license": "See EULA/LICENSE.txt in @microsoft/cpp-language-server NPM package"
+    },
+    {
+      "name": "power-pages",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/power-platform-skills",
+        "path": "plugins/power-pages"
+      },
+      "description": "Create and deploy Power Pages sites using modern development approaches. Supports code sites (SPAs) with React, Angular, Vue, or Astro. Includes ALM orchestration (plan-alm) with a solution-splitting decision tree, per-solution pipelines, Azure Blob asset advisory, manifest schema v2 for multi-solution deployments, and force-link remediation for cross-host pipeline migrations.",
+      "author": {
+        "name": "Microsoft",
+        "url": "https://www.microsoft.com"
+      },
+      "homepage": "https://github.com/microsoft/power-platform-skills",
+      "repository": "https://github.com/microsoft/power-platform-skills",
+      "keywords": [
+        "power-pages",
+        "site-builder",
+        "code-sites",
+        "spa",
+        "react",
+        "angular",
+        "vue",
+        "astro",
+        "pac-cli",
+        "dataverse",
+        "odata",
+        "web-api",
+        "tables",
+        "schema",
+        "solution",
+        "alm",
+        "plan-alm",
+        "ci-cd",
+        "pipeline",
+        "pipelines-host",
+        "force-link",
+        "diagnostics",
+        "shared-lib",
+        "solution-splitting",
+        "asset-advisory"
+      ],
+      "license": "MIT"
+    },
+    {
+      "name": "model-apps",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/power-platform-skills",
+        "path": "plugins/model-apps"
+      },
+      "description": "Build and deploy Power Apps generative pages for model-driven apps with specialist agents for planning, entity creation, and parallel code generation. Requires PAC CLI >= 2.7.0 and Azure CLI (`az`). See CHANGELOG.md for v1.x -> v2.x migration.",
+      "author": {
+        "name": "Microsoft",
+        "url": "https://www.microsoft.com"
+      },
+      "homepage": "https://github.com/microsoft/power-platform-skills",
+      "repository": "https://github.com/microsoft/power-platform-skills",
+      "keywords": [
+        "model-apps",
+        "generative-pages",
+        "genux",
+        "genpage",
+        "react",
+        "fluent-ui",
+        "dataverse",
+        "pac-cli",
+        "model-driven"
+      ],
+      "license": "MIT"
+    },
+    {
+      "name": "mcp-apps",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/power-platform-skills",
+        "path": "plugins/mcp-apps"
+      },
+      "description": "Generate MCP App widgets for MCP tools. Produces self-contained HTML widgets using the MCP Apps protocol.",
+      "author": {
+        "name": "Microsoft",
+        "url": "https://www.microsoft.com"
+      },
+      "homepage": "https://github.com/microsoft/power-platform-skills",
+      "repository": "https://github.com/microsoft/power-platform-skills",
+      "keywords": [
+        "mcp-apps",
+        "mcp",
+        "widget",
+        "ext-apps",
+        "fluent-ui",
+        "html",
+        "tool-visualization"
+      ],
+      "license": "MIT"
+    },
+    {
+      "name": "canvas-apps",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/power-platform-skills",
+        "path": "plugins/canvas-apps"
+      },
+      "description": "Build Power Apps Canvas Apps using the Canvas Authoring MCP server.",
+      "author": {
+        "name": "Microsoft",
+        "url": "https://www.microsoft.com"
+      },
+      "homepage": "https://github.com/microsoft/power-platform-skills",
+      "repository": "https://github.com/microsoft/power-platform-skills",
+      "keywords": [
+        "canvas-apps",
+        "power-apps",
+        "canvas",
+        "pa-yaml",
+        "msapp"
+      ],
+      "license": "MIT"
+    },
+    {
+      "name": "code-apps-preview",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/power-platform-skills",
+        "path": "plugins/code-apps"
+      },
+      "description": "Build and deploy Power Apps code apps using React, Vite, and Power Platform connectors.",
+      "author": {
+        "name": "Microsoft",
+        "url": "https://www.microsoft.com"
+      },
+      "homepage": "https://github.com/microsoft/power-platform-skills",
+      "repository": "https://github.com/microsoft/power-platform-skills",
+      "keywords": [
+        "power-apps",
+        "code-apps",
+        "react",
+        "vite",
+        "dataverse",
+        "connectors",
+        "pac-cli",
+        "power-platform"
+      ],
+      "license": "MIT"
+    },
+    {
+      "name": "mobile-app",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/power-platform-skills",
+        "path": "plugins/mobile-apps"
+      },
+      "description": "Build and deploy Power Apps code apps for mobile using Expo (React Native), with native device functionality and Power Platform connectors",
+      "author": {
+        "name": "Microsoft",
+        "url": "https://www.microsoft.com"
+      },
+      "homepage": "https://github.com/microsoft/power-platform-skills",
+      "repository": "https://github.com/microsoft/power-platform-skills",
+      "keywords": [
+        "power-platform",
+        "power-apps",
+        "code-apps",
+        "mobile",
+        "expo",
+        "react-native",
+        "native",
+        "connectors",
+        "microsoft"
+      ],
+      "license": "MIT"
+    },
+    {
+      "name": "power-automate",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/power-platform-skills",
+        "path": "plugins/power-automate"
+      },
+      "description": "Build, edit, run, and debug Power Automate cloud flows via the FlowAgent MCP server — connection lifecycle, surgical edits, copy across environments, run management, and validated expressions.",
+      "author": {
+        "name": "Microsoft",
+        "url": "https://www.microsoft.com"
+      },
+      "homepage": "https://github.com/microsoft/power-platform-skills",
+      "repository": "https://github.com/microsoft/power-platform-skills",
+      "keywords": [
+        "power-automate",
+        "cloud-flows",
+        "flows",
+        "mcp",
+        "power-platform",
+        "flowagent"
+      ],
+      "license": "MIT"
+    },
+    {
+      "name": "objekts-production-desk",
+      "source": {
+        "source": "github",
+        "repo": "peach420fuzz/objekts-production-desk"
+      },
+      "description": "Production preflight by objekts for AI/VFX, CGI, motion, animation and commercial visual production.",
+      "version": "0.1.3",
+      "author": {
+        "name": "objekts",
+        "url": "https://objekts.ai/"
+      },
+      "homepage": "https://objekts.ai/",
+      "repository": "https://github.com/peach420fuzz/objekts-production-desk",
+      "keywords": [
+        "visual-production",
+        "production-studio",
+        "ai-production",
+        "ai-video",
+        "ai-vfx",
+        "vfx",
+        "cgi",
+        "motion-design",
+        "animation",
+        "commercial-production",
+        "advertising",
+        "film-vfx",
+        "agency-production",
+        "production-preflight",
+        "mcp"
+      ]
+    }
+  ]
+}

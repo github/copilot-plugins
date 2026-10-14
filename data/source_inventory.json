@@ -1,0 +1,791 @@
+﻿{
+    "repository":  "github/copilot-plugins",
+    "baseline_commit":  "fbf7c536a5c7af0c94ff5f528a39004c55129e6d",
+    "working_tree_clean_before_audit":  true,
+    "last_inspected_utc":  "2026-10-04T09:54:32Z",
+    "scope":  "All 30 tracked files at the clean baseline commit; Git metadata excluded.",
+    "record_count":  30,
+    "egp_dataset_count":  0,
+    "records":  [
+                    {
+                        "path":  ".claude-plugin\\marketplace.json",
+                        "type":  "JSON",
+                        "bytes":  34,
+                        "source_purpose":  "Claude plugin marketplace pointer to the GitHub marketplace manifest.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "configuration",
+                        "repository_classification":  "SYSTEM/OPERATIONAL",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "authoritative repository configuration",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "Points to .github/plugin/marketplace.json; pointer, not copied data.",
+                        "overlap_relationship":  "Points to .github/plugin/marketplace.json; pointer, not copied data.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "6264798CFDC76C14E53EF7928087C50E8766BEEB8F1FD685B5FB4BB16D8BDE8A",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  ".github\\plugin\\marketplace.json",
+                        "type":  "JSON",
+                        "bytes":  12899,
+                        "source_purpose":  "Marketplace index describing local and externally hosted Copilot plugins.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "configuration",
+                        "repository_classification":  "SYSTEM/OPERATIONAL",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "authoritative repository configuration",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "537A491370692BB7AA3F380175FB3486383D41371F3619D4E1A5BE31BA8321DC",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "CODEOWNERS",
+                        "type":  "extensionless text",
+                        "bytes":  64,
+                        "source_purpose":  "Repository path ownership rules.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "configuration",
+                        "repository_classification":  "SYSTEM/OPERATIONAL",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "authoritative repository configuration",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "81F53361B023BEB00A21CFE0C32CEA385E2183B0799F7D40E0431588FB835520",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "CODE_OF_CONDUCT.md",
+                        "type":  "MD",
+                        "bytes":  3305,
+                        "source_purpose":  "Community conduct policy.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "documentation",
+                        "repository_classification":  "REFERENCE/DOCUMENTATION",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "maintainer-authored guidance or policy",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "27C8A0A28BD4822705DE7EB0B3480C07606FDF13C7209D627E12DDC4D86F6E64",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "CONTRIBUTING.md",
+                        "type":  "MD",
+                        "bytes":  1618,
+                        "source_purpose":  "Contribution and pull-request guidance.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "documentation",
+                        "repository_classification":  "REFERENCE/DOCUMENTATION",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "maintainer-authored guidance or policy",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "50F948AC8E7C09799E9D82E340EFD5AB01A6D8EA4BB2D08DA16E4FF29C9DC09F",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "LICENSE",
+                        "type":  "extensionless text",
+                        "bytes":  1081,
+                        "source_purpose":  "Repository license text.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "documentation",
+                        "repository_classification":  "REFERENCE/DOCUMENTATION",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "maintainer-authored guidance or policy",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "4C316B104EF3D385024B8C1AAFD000EB945DE141FF64191E92CE6F14EF911FC4",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "README.md",
+                        "type":  "MD",
+                        "bytes":  2015,
+                        "source_purpose":  "Repository overview and marketplace/plugin catalog summary.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "documentation",
+                        "repository_classification":  "REFERENCE/DOCUMENTATION",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "maintainer-authored guidance or policy",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "Descriptive overlap with the corresponding plugin manifest/skill; no duplicated tender records.",
+                        "overlap_relationship":  "Descriptive overlap with the corresponding plugin manifest/skill; no duplicated tender records.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "98F69623AAA502BE9EC129E806AB6A7994DFC46542A96A9A78CE93F4AA08A1FF",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "SECURITY.md",
+                        "type":  "MD",
+                        "bytes":  1775,
+                        "source_purpose":  "Security vulnerability reporting guidance.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "documentation",
+                        "repository_classification":  "REFERENCE/DOCUMENTATION",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "maintainer-authored guidance or policy",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "EB1C24CEE565C870DA0717981474268978200A4DAF580752D57D78BA78EB3C95",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "SUPPORT.md",
+                        "type":  "MD",
+                        "bytes":  667,
+                        "source_purpose":  "User support guidance.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "documentation",
+                        "repository_classification":  "REFERENCE/DOCUMENTATION",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "maintainer-authored guidance or policy",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "8531273CDED5666B62297DF61255F0B1BF9AECE89AB03AADB4078484D4933ED7",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "plugins\\build-perf-cpp\\README.md",
+                        "type":  "MD",
+                        "bytes":  1527,
+                        "source_purpose":  "Build performance plugin overview, requirements, and usage.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "documentation",
+                        "repository_classification":  "REFERENCE/DOCUMENTATION",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "maintainer-authored guidance or policy",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "Descriptive overlap with the corresponding plugin manifest/skill; no duplicated tender records.",
+                        "overlap_relationship":  "Descriptive overlap with the corresponding plugin manifest/skill; no duplicated tender records.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "6754CBFA05EE9405C6D38374469B7C4FB3B21B1C496E91FADD9F6D8D08261378",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "plugins\\build-perf-cpp\\hooks\\hooks.json",
+                        "type":  "JSON",
+                        "bytes":  368,
+                        "source_purpose":  "Hook declarations that run the vcperf installer and correlation-ID helper.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "configuration",
+                        "repository_classification":  "SYSTEM/OPERATIONAL",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "authoritative repository configuration",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "9B0C8B298DD82F30B0279B3FC669FB0A1DA07FB2FCFB481722F2A67FFEAB10A6",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "plugins\\build-perf-cpp\\plugin.json",
+                        "type":  "JSON",
+                        "bytes":  795,
+                        "source_purpose":  "Build performance plugin manifest and skill/hook registration.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "configuration",
+                        "repository_classification":  "SYSTEM/OPERATIONAL",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "authoritative repository configuration",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "D5F0C30F00DB00E11C2EEAECDC8E13616E44E49843E35A515650513AF71BF74B",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "plugins\\build-perf-cpp\\scripts\\install-vcperf.ps1",
+                        "type":  "PS1",
+                        "bytes":  3537,
+                        "source_purpose":  "Local vcperf install/update logic using NuGet.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "implementation",
+                        "repository_classification":  "SYSTEM/OPERATIONAL",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "authoritative operational implementation",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "6A6D1C2ACD5E0F9A488CAD2A937F2D82CEAE1FA248781C4DA14772F331B3F46A",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "plugins\\build-perf-cpp\\scripts\\write-correlation-id.ps1",
+                        "type":  "PS1",
+                        "bytes":  741,
+                        "source_purpose":  "Creates and atomically replaces the local vcperf correlation-ID file.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "implementation",
+                        "repository_classification":  "SYSTEM/OPERATIONAL",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "authoritative operational implementation",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "F7DAEDECE53751FD7D360681A74904C350E53C5955B8ED105063ED2120836A09",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "plugins\\build-perf-cpp\\skills\\build-performance-analysis\\SKILL.md",
+                        "type":  "MD",
+                        "bytes":  33543,
+                        "source_purpose":  "Instructions for collecting and interpreting MSVC build-performance traces.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "documentation",
+                        "repository_classification":  "REFERENCE/DOCUMENTATION",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "maintainer-authored guidance or policy",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "B6FD0B2F4A21B1D68D70940E488D6DD26085DED0CD33601455F5E030818DA59C",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "plugins\\build-perf-cpp\\skills\\build-performance-analysis\\references\\feed-auth.md",
+                        "type":  "MD",
+                        "bytes":  2756,
+                        "source_purpose":  "NuGet feed authentication and vcperf install fallback procedure.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "documentation",
+                        "repository_classification":  "REFERENCE/DOCUMENTATION",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "maintainer-authored guidance or policy",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "FCD283233D04CE0299256171258238DC7C7BD574A602DC5262132302693E1E95",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "plugins\\build-perf-cpp\\skills\\build-performance-analysis\\references\\json-schema.md",
+                        "type":  "MD",
+                        "bytes":  4392,
+                        "source_purpose":  "Reference schema for vcperf JSON analysis output.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "documentation",
+                        "repository_classification":  "REFERENCE/DOCUMENTATION",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "maintainer-authored guidance or policy",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "B81F10A0E3BD78E2D47730DC3DB18701331DC9BE628233AF7F07EE239DE816DA",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "plugins\\spark\\README.md",
+                        "type":  "MD",
+                        "bytes":  1552,
+                        "source_purpose":  "Spark plugin overview and app-template skill summary.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "documentation",
+                        "repository_classification":  "REFERENCE/DOCUMENTATION",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "maintainer-authored guidance or policy",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "Descriptive overlap with the corresponding plugin manifest/skill; no duplicated tender records.",
+                        "overlap_relationship":  "Descriptive overlap with the corresponding plugin manifest/skill; no duplicated tender records.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "60FEDF9FCF3260B8ED9E7342262C3475CA1BA33AFB37BA175E898A5B2F31677D",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "plugins\\spark\\skills\\spark-app-template\\SKILL.md",
+                        "type":  "MD",
+                        "bytes":  16685,
+                        "source_purpose":  "Guidance for scaffolding and implementing new web applications.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "documentation",
+                        "repository_classification":  "REFERENCE/DOCUMENTATION",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "maintainer-authored guidance or policy",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "536204F38FEA2581C45AB0E030C5123FF6AC311F5246132871F0E419289CF15F",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "plugins\\spark\\skills\\spark-app-template\\references\\color-palettes.md",
+                        "type":  "MD",
+                        "bytes":  12435,
+                        "source_purpose":  "Color palette reference for Spark-generated applications.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "documentation",
+                        "repository_classification":  "REFERENCE/DOCUMENTATION",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "maintainer-authored guidance or policy",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "EEDC5623DE897FDF8231FC52D1E9C86732132D7A0BFBA0827552F338CD73F3FA",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "plugins\\spark\\skills\\spark-app-template\\references\\component-patterns.md",
+                        "type":  "MD",
+                        "bytes":  26567,
+                        "source_purpose":  "Component composition reference for Spark-generated applications.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "documentation",
+                        "repository_classification":  "REFERENCE/DOCUMENTATION",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "maintainer-authored guidance or policy",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "86BA9CDB9B5BFAD9970E22AD4E620BB230BC1E7828B675C4E5585CEB78F62C02",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "plugins\\spark\\skills\\spark-app-template\\references\\design-system.md",
+                        "type":  "MD",
+                        "bytes":  15279,
+                        "source_purpose":  "Design system and visual composition reference for Spark applications.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "documentation",
+                        "repository_classification":  "REFERENCE/DOCUMENTATION",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "maintainer-authored guidance or policy",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "E45D7E59F6D468AFBD89D20A6289987CE1CDDEFD10C8E7D6992FB8A55215642C",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "plugins\\spark\\skills\\spark-app-template\\references\\performance-checklist.md",
+                        "type":  "MD",
+                        "bytes":  13650,
+                        "source_purpose":  "Performance and Core Web Vitals checklist for Spark applications.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "documentation",
+                        "repository_classification":  "REFERENCE/DOCUMENTATION",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "maintainer-authored guidance or policy",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "20A59149145788C726F5FD2C2B2B65F33856A55BBA255F747BEEA177C5CBDD85",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "plugins\\spark\\skills\\spark-app-template\\references\\prd-template.md",
+                        "type":  "MD",
+                        "bytes":  8694,
+                        "source_purpose":  "Product requirements document template for app planning.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "documentation",
+                        "repository_classification":  "REFERENCE/DOCUMENTATION",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "maintainer-authored guidance or policy",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "ED906DC2CA3B5A8860A0294418D60AF650FDC773FEFC52A97840497C9A8E1C56",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "plugins\\spark\\skills\\spark-app-template\\references\\radix-migration-guide.md",
+                        "type":  "MD",
+                        "bytes":  7537,
+                        "source_purpose":  "UI primitive migration reference for Spark applications.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "documentation",
+                        "repository_classification":  "REFERENCE/DOCUMENTATION",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "maintainer-authored guidance or policy",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "3C2BAA218694B9C573FF46DA2490C81BD99C4B8F7582AC561D975DF6F318B2B1",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "plugins\\spark\\skills\\spark-app-template\\references\\typography-pairings.md",
+                        "type":  "MD",
+                        "bytes":  12044,
+                        "source_purpose":  "Typography pairing reference for Spark applications.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "documentation",
+                        "repository_classification":  "REFERENCE/DOCUMENTATION",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "maintainer-authored guidance or policy",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "D3B091E1055B7B76A1F12F1EF225524C1EC2B2443440ADE2F4A142FFD3CBE9E1",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "plugins\\spark\\skills\\spark-app-template\\stacks\\complex-application.md",
+                        "type":  "MD",
+                        "bytes":  23608,
+                        "source_purpose":  "Stack and implementation guidance for complex web applications.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "documentation",
+                        "repository_classification":  "REFERENCE/DOCUMENTATION",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "maintainer-authored guidance or policy",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "06C33B0E831E0123C3F97860715B2A7B3EEBDA7724C5BAAC9B27E2346B1CC912",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "plugins\\spark\\skills\\spark-app-template\\stacks\\content-showcase.md",
+                        "type":  "MD",
+                        "bytes":  12184,
+                        "source_purpose":  "Stack and design guidance for content-focused web applications.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "documentation",
+                        "repository_classification":  "REFERENCE/DOCUMENTATION",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "maintainer-authored guidance or policy",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "724962EBE3467530DC12250B715396E480E559A6E70EDF5400B132B3AFFB1CE5",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "plugins\\spark\\skills\\spark-app-template\\stacks\\data-dashboard.md",
+                        "type":  "MD",
+                        "bytes":  11323,
+                        "source_purpose":  "Stack and design guidance for dashboard-style web applications.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "documentation",
+                        "repository_classification":  "REFERENCE/DOCUMENTATION",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "maintainer-authored guidance or policy",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "7AA80A82A2D2E8E2A7A2835538F95F3DB713A40FC8EF1A0623B5170BE2F91E4E",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    },
+                    {
+                        "path":  "plugins\\spark\\skills\\spark-app-template\\stacks\\default-webapp.md",
+                        "type":  "MD",
+                        "bytes":  10415,
+                        "source_purpose":  "Stack and design guidance for general-purpose web applications.",
+                        "source_system":  "github/copilot-plugins checkout",
+                        "date_coverage":  null,
+                        "actual_record_count":  null,
+                        "record_count_applicability":  "Not a tender/firm dataset.",
+                        "artifact_role":  "documentation",
+                        "repository_classification":  "REFERENCE/DOCUMENTATION",
+                        "egp_data_classification":  "NOT_APPLICABLE",
+                        "authority_status":  "maintainer-authored guidance or policy",
+                        "entities_contained":  [
+
+                                               ],
+                        "important_data_fields":  [
+
+                                                  ],
+                        "duplicate_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "overlap_relationship":  "No record-level duplicate or e-GP data overlap identified.",
+                        "reliability":  "Authoritative for the repository artifact described; not factual e-GP evidence.",
+                        "sha256":  "AACFD3B809B206E20C08068995B04125EE5C3DD0FC9F672896AFC02AA865496B",
+                        "last_inspected_utc":  "2026-10-04T09:54:32Z",
+                        "notes":  "No tender, firm, PE, award, bidder, credential, or procurement record rows are contained in this file."
+                    }
+                ]
+}

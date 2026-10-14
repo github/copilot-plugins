@@ -10,6 +10,23 @@
   },
   "plugins": [
     {
+      "name": "magic-hour",
+      "description": "Create and finish AI images and videos with reusable Magic Hour workflows. Uses an existing Magic Hour MCP or API connection; generation requires account credits.",
+      "version": "1.4.0",
+      "author": {
+        "name": "Magic Hour",
+        "url": "https://magichour.ai"
+      },
+      "homepage": "https://github.com/magichourhq/skills",
+      "repository": "https://github.com/magichourhq/skills",
+      "keywords": ["magic-hour", "ai-media", "image-generation", "video-generation"],
+      "license": "MIT",
+      "source": {
+        "source": "github",
+        "repo": "magichourhq/skills"
+      }
+    },
+    {
       "name": "workiq",
       "description": "Query Microsoft 365 data with natural language — emails, meetings, documents, Teams messages, and more.",
       "version": "1.0.0",

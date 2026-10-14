@@ -128,6 +128,30 @@
       "repository": "https://github.com/github/copilot-advanced-security-plugin"
     },
     {
+      "name": "agentic-feature-workflow",
+      "source": {
+        "source": "github",
+        "repo": "qqwasqqs/copilot-agentic-workflows"
+      },
+      "description": "Plan reusable feature briefs and turn them into dependency-ordered, linked GitHub sub-issues across repositories.",
+      "version": "1.0.0",
+      "author": {
+        "name": "qqwasqqs",
+        "url": "https://github.com/qqwasqqs"
+      },
+      "homepage": "https://github.com/qqwasqqs/copilot-agentic-workflows",
+      "repository": "https://github.com/qqwasqqs/copilot-agentic-workflows",
+      "keywords": [
+        "planning",
+        "feature-brief",
+        "github-issues",
+        "sub-issues",
+        "decomposition",
+        "workflow"
+      ],
+      "license": "MIT"
+    },
+    {
       "name": "azure-devops-copilot-plugin",
       "source": {
         "source": "github",

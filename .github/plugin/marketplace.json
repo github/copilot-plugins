@@ -434,6 +434,31 @@
         "xpp"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "ddg-services",
+      "source": {
+        "source": "github",
+        "repo": "0xcircuitbreaker/ddg-agent-plugins",
+        "path": "plugins/ddg-services"
+      },
+      "description": "DDG Agent Services catalog over a remote MCP server: discover and call 376 pay-per-call x402 routes (USDC on Base), quote payment challenges, and check service status. No account or API key required.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Daedalus Development Group",
+        "url": "https://agents.daedalusdevelopmentgroup.com"
+      },
+      "homepage": "https://agents.daedalusdevelopmentgroup.com",
+      "repository": "https://github.com/0xcircuitbreaker/ddg-agent-plugins",
+      "keywords": [
+        "ddg",
+        "daedalus",
+        "x402",
+        "agent-payments",
+        "mcp",
+        "api-catalog"
+      ],
+      "license": "MIT"
     }
   ]
 }

@@ -434,6 +434,28 @@
         "xpp"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "shuffll-engage",
+      "description": "Shuffll Engage personalized video campaign workflows, creative previews and results through its API and MCP. Includes one reusable skill; requires a paid subscription and authorized workspace access.",
+      "version": "0.2.2",
+      "author": {
+        "name": "Shuffll",
+        "url": "https://shuffll.com"
+      },
+      "homepage": "https://engage.shuffll.com",
+      "repository": "https://github.com/shuffll/shuffll-engage-agent-kit",
+      "keywords": [
+        "shuffll",
+        "shuffll-engage",
+        "personalized-video"
+      ],
+      "license": "MIT",
+      "source": {
+        "source": "github",
+        "repo": "shuffll/shuffll-engage-agent-kit",
+        "sha": "7e90f5cc9840b88069cdf1b08370e4fef5dddef5"
+      }
     }
   ]
 }

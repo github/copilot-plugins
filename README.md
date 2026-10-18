@@ -27,6 +27,8 @@ This marketplace also references plugins hosted in other repositories:
 
 - **[Power Platform Skills](https://github.com/microsoft/power-platform-skills)** — `power-pages`, `model-apps`, `mcp-apps`, `canvas-apps`, `code-apps-preview`, `mobile-app`, `power-automate`. Plugins for Power Platform development (Power Pages sites, model-driven and canvas apps, code apps, MCP App widgets, mobile apps, and Power Automate cloud flows).
 
+- [Shuffll Engage](https://github.com/shuffll/shuffll-engage-agent-kit) — Personalized video campaign workflows, creative previews and results through its API and MCP, with a reusable agent skill. Paid service subscription and authorized workspace access required.
+
 ## 🤝 Contributing
 
 We'd love your contributions! Please read our [Contributing Guide](CONTRIBUTING.md) for details on how to submit pull requests.

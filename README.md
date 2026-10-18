@@ -27,6 +27,8 @@ This marketplace also references plugins hosted in other repositories:
 
 - **[Power Platform Skills](https://github.com/microsoft/power-platform-skills)** — `power-pages`, `model-apps`, `mcp-apps`, `canvas-apps`, `code-apps-preview`, `mobile-app`, `power-automate`. Plugins for Power Platform development (Power Pages sites, model-driven and canvas apps, code apps, MCP App widgets, mobile apps, and Power Automate cloud flows).
 
+- **[DDG Agent Services](https://github.com/0xcircuitbreaker/ddg-agent-plugins)** — `ddg-services`. Discover and call 376 pay-per-call x402 APIs (USDC on Base) from a remote MCP server. No account or API key.
+
 ## 🤝 Contributing
 
 We'd love your contributions! Please read our [Contributing Guide](CONTRIBUTING.md) for details on how to submit pull requests.

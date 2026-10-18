@@ -10,6 +10,29 @@
   },
   "plugins": [
     {
+      "name": "sql-apps",
+      "description": "Build and validate applications on Azure SQL Database and Data API Builder; route general Azure work to maintained Azure skills.",
+      "version": "0.2.3",
+      "author": {
+        "name": "Microsoft SQL team (mssql)",
+        "url": "https://github.com/microsoft"
+      },
+      "homepage": "https://github.com/microsoft/sql-apps",
+      "keywords": [
+        "azure-sql",
+        "data-api-builder",
+        "local-development",
+        "application-foundation"
+      ],
+      "license": "MIT",
+      "repository": "https://github.com/microsoft/sql-apps",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/sql-apps",
+        "path": "plugins/sql-apps"
+      }
+    },
+    {
       "name": "workiq",
       "description": "Query Microsoft 365 data with natural language — emails, meetings, documents, Teams messages, and more.",
       "version": "1.0.0",

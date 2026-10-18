@@ -434,6 +434,32 @@
         "xpp"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "brainrot-finance",
+      "source": {
+        "source": "github",
+        "repo": "Brainrot-Creations/plugins",
+        "path": "plugins/brainrot-finance"
+      },
+      "description": "Live quotes and price history for stocks, ETFs, crypto, currencies, Indian mutual funds, gold and silver, and private and pre-IPO companies, plus your own investment portfolios valued live. Sign in with a Brainrot account.",
+      "version": "1.0.2",
+      "author": {
+        "name": "Brainrot Creations",
+        "url": "https://www.brainrotcreations.com"
+      },
+      "homepage": "https://finance.brainrotcreations.com",
+      "repository": "https://github.com/Brainrot-Creations/plugins",
+      "keywords": [
+        "brainrot-finance",
+        "finance",
+        "stocks",
+        "portfolio",
+        "investing",
+        "crypto",
+        "private-markets"
+      ],
+      "license": "MIT"
     }
   ]
 }

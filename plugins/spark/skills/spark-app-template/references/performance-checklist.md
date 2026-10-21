@@ -314,6 +314,239 @@ import * as Icons from 'lucide-react';
 import { Home, Settings } from 'lucide-react';
 ```
 
+### Dynamic Import Strategy
+
+Eliminate unnecessary bundle bloat by strategically using dynamic imports and avoiding patterns that break tree-shaking. Following these rules typically yields ~20–40% smaller bundles.
+
+1) Why barrel exports prevent tree-shaking
+
+- Problem: `export * from './X'` (barrel) re-exports everything. When you import from the barrel, bundlers may resolve the whole module graph and include unused exports, preventing fine-grained tree-shaking.
+
+  Bad (barrel):
+  ```ts
+  // components/index.ts
+  export * from './Button';
+  export * from './Chart';
+
+  // Usage
+  import { Chart } from 'components';
+  // Bundler may include Button and other exports even if unused
+  ```
+
+  Good: import from file path or use explicit named re-exports
+  ```ts
+  // Usage (direct):
+  import Chart from 'components/Chart';
+
+  // Or explicit re-export (safe):
+  // components/index.ts
+  export { default as Chart } from './Chart';
+  ```
+
+2) lucide-react icons — use named imports only
+
+- Never use `import * as Icons from 'lucide-react'` — that imports the whole icon set and defeats tree-shaking. Always import only the icons you use.
+
+  Bad:
+  ```tsx
+  import * as Icons from 'lucide-react';
+  export const Nav = () => <Icons.Home />;
+  ```
+
+  Good (tree-shakable):
+  ```tsx
+  import { Home, Settings } from 'lucide-react';
+  export const Nav = () => <Home />;
+  ```
+
+3) Proper imports for custom components (avoid bloat)
+
+- Prefer importing directly from the component file for app-level imports. If an index file is required, re-export explicitly (named exports), not `export *`.
+
+  Bad (may bloat):
+  ```ts
+  // components/index.ts
+  export * from './Button';
+  export * from './RichTextEditor';
+
+  // Anywhere
+  import { RichTextEditor } from 'components';
+  // Might pull in Button, Editor dependencies, etc.
+  ```
+
+  Good:
+  ```ts
+  // Import directly
+  import RichTextEditor from 'components/RichTextEditor';
+
+  // Or explicit index re-exports
+  // components/index.ts
+  export { default as RichTextEditor } from './RichTextEditor';
+  ```
+
+4) Dynamic imports for heavy features (charts, editors, PDF, code editors)
+
+- Defer heavy code until needed using dynamic imports. This reduces initial bundle and speeds up first paint.
+
+  Component-level (React.lazy + Suspense):
+  ```tsx
+  import { lazy, Suspense } from 'react';
+  const HeavyChart = lazy(() => import('./HeavyChart'));
+
+  function Dashboard() {
+    return (
+      <Suspense fallback={<ChartSkeleton />}>
+        <HeavyChart data={data} />
+      </Suspense>
+    );
+  }
+  ```
+
+  Imperative/on-demand (utilities or APIs):
+  ```ts
+  async function handleExport() {
+    const { exportToPDF } = await import('./export-utils');
+    exportToPDF(data);
+  }
+  ```
+
+Practical tips
+
+- Audit bundles with visualizer to confirm reductions.
+- Prefer named exports for small modules.
+- Avoid large barrels at app entry points; keep them confined to dev tooling or CLI layers.
+- Combine dynamic imports with route-based splitting for maximum effect.
+
+Expected impact: 20–40% smaller initial bundles when applied consistently across icons, component imports, and heavy features.
+
+
+### Dynamic Import Strategy
+
+Eliminate unnecessary bundle bloat by strategically using dynamic imports and avoiding barrel exports. This approach can reduce bundle size by **20-40%**.
+
+#### Problem: Barrel Exports & Tree-Shaking
+
+Barrel exports (index files that re-export everything) prevent tree-shaking, causing entire modules to be bundled even if only one function is used.
+
+```tsx
+// ❌ Bad: Custom components/index.ts (barrel export)
+export { Button } from './Button';
+export { Card } from './Card';
+export { Dialog } from './Dialog';
+export { Modal } from './Modal';
+export { Sidebar } from './Sidebar';
+
+// Importing just one component still bundles ALL of them
+import { Button } from './components';
+// Result: 45KB of unused component code in bundle
+```
+
+#### Solution: Named Imports Only
+
+```tsx
+// ✅ Good: Import components directly
+import { Button } from './components/Button';
+import { Card } from './components/Card';
+
+// Only Button and Card are included in bundle
+// Result: 8KB (minimal)
+```
+
+#### Icon Import Patterns
+
+```tsx
+// ❌ Bad: Namespace import bundles all 700+ icons
+import * as Icons from 'lucide-react';
+const HeartIcon = Icons.Heart; // Still bundles all icons
+// Result: 250KB+ icons in bundle
+
+// ✅ Good: Named imports only
+import { Heart, Home, Settings } from 'lucide-react';
+// Result: 12KB (only used icons)
+
+// ✅ Better: Lazy load icon packs for features
+import { lazy, Suspense } from 'react';
+
+const ChartIcons = lazy(() =>
+  import('lucide-react').then((m) => ({
+    default: { BarChart: m.BarChart, LineChart: m.LineChart },
+  }))
+);
+
+export function Dashboard() {
+  return (
+    <Suspense fallback={null}>
+      <ChartIcons />
+    </Suspense>
+  );
+}
+```
+
+#### Heavy Feature Dynamic Imports
+
+Use dynamic imports for features loaded on-demand, not on initial page load:
+
+```tsx
+// ✅ Good: Lazy load heavy features
+import { lazy, Suspense } from 'react';
+
+// Chart library loaded only when needed (200KB saved on initial load!)
+const AdvancedCharts = lazy(() => import('./features/AdvancedCharts'));
+const PDFExporter = lazy(() => import('./features/PDFExporter'));
+const VideoEditor = lazy(() => import('./features/VideoEditor'));
+
+export function Dashboard() {
+  const [showCharts, setShowCharts] = useState(false);
+
+  return (
+    <>
+      <button onClick={() => setShowCharts(true)}>Show Analytics</button>
+      
+      {showCharts && (
+        <Suspense fallback={<div>Loading charts...</div>}>
+          <AdvancedCharts />
+        </Suspense>
+      )}
+    </>
+  );
+}
+```
+
+#### Import Configuration Best Practices
+
+```tsx
+// ✅ Good: Explicit, granular imports
+import { debounce, throttle } from 'lodash';
+import { Heart, Home } from 'lucide-react';
+import { Button } from '@components/Button';
+import { useQuery } from '@tanstack/react-query';
+
+// ❌ Avoid: Wildcard or default imports
+import * as _ from 'lodash';
+import Icons from 'lucide-react';
+import * as Components from '@components';
+import queryLib from '@tanstack/react-query';
+```
+
+#### Checking Your Bundle
+
+Verify tree-shaking is working:
+
+```bash
+# Analyze what's in your bundle
+pnpm add -D rollup-plugin-visualizer
+# Then check the visualizer report for unexpected modules
+```
+
+**Key Rules**:
+- Never use `import * as` or `import X from` with libraries
+- Always use named imports: `import { X, Y } from 'lib'`
+- Replace barrel exports in custom code with direct imports
+- Lazy-load heavy features with `React.lazy()` and `Suspense`
+- Preload only critical paths to user flows
+
+**Result**: Smaller initial bundle → faster LCP → better Core Web Vitals → higher conversion rates
+
 ### Remove Unused Code
 
 ```bash

@@ -118,6 +118,27 @@
       "license": "MIT"
     },
     {
+      "name": "imessage",
+      "source": "./plugins/imessage",
+      "description": "Securely read and send iMessages from GitHub Copilot CLI on macOS using local Messages data and AppleScript.",
+      "version": "1.0.0",
+      "author": {
+        "name": "GitHub",
+        "url": "https://github.com/github"
+      },
+      "homepage": "https://github.com/github/copilot-plugins/tree/main/plugins/imessage",
+      "repository": "https://github.com/github/copilot-plugins",
+      "keywords": [
+        "imessage",
+        "messages",
+        "macos",
+        "messaging",
+        "mcp",
+        "copilot-cli"
+      ],
+      "license": "Apache-2.0"
+    },
+    {
       "name": "advanced-security",
       "source": {
         "source": "github",

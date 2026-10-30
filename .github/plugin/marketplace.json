@@ -434,6 +434,33 @@
         "xpp"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "grafana-cloud-mcp",
+      "source": {
+        "source": "github",
+        "repo": "grafana/ai-marketplace",
+        "path": "plugins/grafana-cloud-mcp"
+      },
+      "description": "Connect to Grafana Cloud through a hosted MCP server with OAuth sign-in: query metrics, logs, traces, and profiles, and work with dashboards, alerts, and incidents. Nothing to install.",
+      "author": {
+        "name": "Grafana Labs",
+        "url": "https://grafana.com"
+      },
+      "homepage": "https://github.com/grafana/ai-marketplace/tree/main/plugins/grafana-cloud-mcp",
+      "repository": "https://github.com/grafana/ai-marketplace",
+      "keywords": [
+        "grafana",
+        "grafana-cloud",
+        "observability",
+        "dashboards",
+        "prometheus",
+        "loki",
+        "tempo",
+        "alerting",
+        "incidents"
+      ],
+      "license": "Apache-2.0"
     }
   ]
 }

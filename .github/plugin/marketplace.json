@@ -434,6 +434,32 @@
         "xpp"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "objekts-production-desk",
+      "source": {
+        "source": "github",
+        "repo": "peach420fuzz/objekts-production-desk"
+      },
+      "description": "KOUNT by objekts: production preflight for film, AI/VFX, CGI and motion, checking reference authority, continuity, exact visual constraints and the smallest production proof-of-concept.",
+      "version": "0.1.5",
+      "author": {
+        "name": "objekts",
+        "url": "https://objekts.ai/"
+      },
+      "homepage": "https://objekts.ai/",
+      "repository": "https://github.com/peach420fuzz/objekts-production-desk",
+      "keywords": [
+        "kount by objekts",
+        "production-preflight",
+        "ai-vfx",
+        "filmmaking",
+        "pre-production",
+        "animatics",
+        "cgi",
+        "visual-production",
+        "mcp"
+      ]
     }
   ]
 }

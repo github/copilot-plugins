@@ -152,16 +152,16 @@
       "name": "fixlab",
       "source": {
         "source": "github",
-        "repo": "MonaDevAI/FixLab"
+        "repo": "microsoft/FixLab"
       },
       "description": "Evidence-backed defect diagnosis, repair, and validation for React and .NET repositories.",
-      "version": "0.7.3",
+      "version": "0.7.4",
       "author": {
         "name": "MonaDevAI",
         "url": "https://github.com/MonaDevAI"
       },
-      "homepage": "https://github.com/MonaDevAI/FixLab",
-      "repository": "https://github.com/MonaDevAI/FixLab",
+      "homepage": "https://github.com/microsoft/FixLab",
+      "repository": "https://github.com/microsoft/FixLab",
       "keywords": [
         "testing",
         "validation",
@@ -439,5 +439,4 @@
     }
   ]
 }
-
 

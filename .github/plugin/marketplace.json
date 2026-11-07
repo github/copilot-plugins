@@ -128,6 +128,29 @@
       "repository": "https://github.com/github/copilot-advanced-security-plugin"
     },
     {
+      "name": "aso-skill",
+      "description": "Research current Apple App Store keywords, rankings, popularity, and competitor metadata through a secure hosted MCP connection.",
+      "version": "1.6.2",
+      "author": {
+        "name": "Hesselbom Tech AB",
+        "url": "https://www.asoskill.com/about"
+      },
+      "homepage": "https://www.asoskill.com",
+      "keywords": [
+        "aso",
+        "app-store-optimization",
+        "apple-app-store",
+        "keyword-research",
+        "mcp"
+      ],
+      "license": "MIT",
+      "repository": "https://github.com/ASO-Skill/aso-skill",
+      "source": {
+        "source": "github",
+        "repo": "ASO-Skill/aso-skill"
+      }
+    },
+    {
       "name": "azure-devops-copilot-plugin",
       "source": {
         "source": "github",

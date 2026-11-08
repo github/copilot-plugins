@@ -27,7 +27,7 @@ This marketplace also references plugins hosted in other repositories:
 
 - **[Power Platform Skills](https://github.com/microsoft/power-platform-skills)** — `power-pages`, `model-apps`, `mcp-apps`, `canvas-apps`, `code-apps-preview`, `mobile-app`, `power-automate`. Plugins for Power Platform development (Power Pages sites, model-driven and canvas apps, code apps, MCP App widgets, mobile apps, and Power Automate cloud flows).
 
-- **[WinUI](https://github.com/microsoft/win-dev-skills)** — Agents and skills for WinUI 3 app development. Create new WinUI 3 desktop apps, convert from other frameworks (WPF, WinForms, Electron, Tauri, Flutter) to WinUI 3, or add features to existing WinUI 3 applications. Includes MSIX packaging, code signing, UI automation testing, and Windows App SDK guidance.
+- **[WinUI and WinApp CLI](https://github.com/microsoft/WinAppCli)** — `winui`, `winappcli`. Build Windows apps: create WinUI 3 desktop apps or move existing apps to WinUI 3, then package, sign, and ship them with WinApp CLI (MSIX installers, certificates, package identity, and Microsoft Store distribution).
 
 ## 🤝 Contributing
 

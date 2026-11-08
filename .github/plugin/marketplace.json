@@ -411,6 +411,31 @@
       "license": "MIT"
     },
     {
+      "name": "dataverse",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/Dataverse-skills",
+        "path": ".github/plugins/dataverse"
+      },
+      "description": "Microsoft Dataverse plugin for coding agents, covering record CRUD, bulk data operations, advanced queries, schema and metadata, administration, security, environment management, and solution lifecycle through MCP, CLI, and SDK workflows.",
+      "author": {
+        "name": "Microsoft",
+        "url": "https://www.microsoft.com"
+      },
+      "homepage": "https://github.com/microsoft/Dataverse-skills",
+      "repository": "https://github.com/microsoft/Dataverse-skills",
+      "keywords": [
+        "dataverse",
+        "power-platform",
+        "power-apps",
+        "dynamics-365",
+        "dynamics-crm",
+        "finance-operations",
+        "xpp"
+      ],
+      "license": "MIT"
+    },
+    {
       "name": "winui",
       "source": {
         "source": "github",

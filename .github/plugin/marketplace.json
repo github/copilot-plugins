@@ -434,6 +434,68 @@
         "xpp"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "winui",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/WinAppCli",
+        "path": "plugins/winui/agent-plugin",
+        "ref": "v0.8.0",
+        "sha": "696222f72e80c669671845bd6c7b0286eefab987"
+      },
+      "description": "Agents and skills for WinUI 3 app development. Create new WinUI 3 desktop apps, convert from other frameworks (WPF, WinForms, Electron, Tauri, Flutter) to WinUI 3, or add features to existing WinUI 3 applications. Includes MSIX packaging, code signing, UI automation testing, and Windows App SDK guidance.",
+      "version": "0.8.0",
+      "author": {
+        "name": "Microsoft",
+        "url": "https://www.microsoft.com"
+      },
+      "homepage": "https://github.com/microsoft/WinAppCli",
+      "repository": "https://github.com/microsoft/WinAppCli",
+      "keywords": [
+        "windows",
+        "winui",
+        "winui3",
+        "xaml",
+        "windows-app-sdk",
+        "msix",
+        "packaging",
+        "desktop",
+        "wpf-migration",
+        "electron-migration"
+      ],
+      "license": "MIT"
+    },
+    {
+      "name": "winappcli",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/WinAppCli",
+        "path": "plugins/winapp",
+        "ref": "v0.8.0",
+        "sha": "696222f72e80c669671845bd6c7b0286eefab987"
+      },
+      "description": "Windows app development, packaging, and distribution. Helps with creating Windows installers (MSIX), code signing, certificates, Windows SDK and Windows App SDK setup, package identity for Windows APIs (push notifications, background tasks, share target), appxmanifest authoring, and Microsoft Store distribution. Supports Electron, .NET, C++, Rust, Flutter, and Tauri apps.",
+      "version": "0.8.0",
+      "author": {
+        "name": "Microsoft",
+        "url": "https://www.microsoft.com"
+      },
+      "homepage": "https://github.com/microsoft/WinAppCli",
+      "repository": "https://github.com/microsoft/WinAppCli",
+      "keywords": [
+        "windows",
+        "msix",
+        "packaging",
+        "installer",
+        "code-signing",
+        "appxmanifest",
+        "microsoft-store",
+        "electron",
+        "tauri",
+        "desktop-app"
+      ],
+      "license": "MIT"
     }
   ]
 }

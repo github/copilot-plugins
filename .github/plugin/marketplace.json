@@ -434,6 +434,72 @@
         "xpp"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "poesis-saf-agentic-harness",
+      "source": {
+        "source": "github",
+        "repo": "poesis-cloud/saf-agentic-harness",
+        "ref": "plugin-v1.0.0-alpha.3",
+        "sha": "48736d39191e942189bc7a0ba8931170ab8f97de"
+      },
+      "description": "Deterministic governance - regulation - supervision - coordination of agentic organization: workflow orchestration; step, model, skill, instruction resolution; artifact transaction and versioning; logging; agent authorization. (Pre-release / preview, v1.0.0-alpha.3; install via: marketplace add poesis-cloud/saf-marketplace#preview.)",
+      "version": "1.0.0-alpha.3",
+      "author": {
+        "name": "Poesis SAS",
+        "email": "clement.cazaud@poesis.cloud"
+      },
+      "homepage": "https://docs.poesis.cloud/saf/",
+      "repository": "https://github.com/poesis-cloud/saf-agentic-harness",
+      "keywords": [
+        "harness",
+        "organization",
+        "governance",
+        "regulation",
+        "supervision",
+        "coordination",
+        "orchestration",
+        "workflow",
+        "agent",
+        "skill",
+        "instruction",
+        "artifact",
+        "template"
+      ],
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "poesis-saf-agentic-organization",
+      "source": {
+        "source": "github",
+        "repo": "poesis-cloud/saf-agentic-organization",
+        "ref": "plugin-v1.0.0-alpha.3",
+        "sha": "bc4506a5cbae0bd31e38ab16ddbe1e80bc211581"
+      },
+      "description": "A governed - regulated - supervised - coordinated SAFe-shaped agentic organization: portfolio, program and team orchestrators with a specialist bench. (Pre-release / preview, v1.0.0-alpha.3; install via: marketplace add poesis-cloud/saf-marketplace#preview.)",
+      "version": "1.0.0-alpha.3",
+      "author": {
+        "name": "Poesis SAS",
+        "email": "clement.cazaud@poesis.cloud"
+      },
+      "homepage": "https://docs.poesis.cloud/saf/",
+      "repository": "https://github.com/poesis-cloud/saf-agentic-organization",
+      "keywords": [
+        "harness",
+        "organization",
+        "governance",
+        "regulation",
+        "supervision",
+        "coordination",
+        "orchestration",
+        "workflow",
+        "agent",
+        "skill",
+        "instruction",
+        "artifact",
+        "template"
+      ],
+      "license": "Apache-2.0"
     }
   ]
 }

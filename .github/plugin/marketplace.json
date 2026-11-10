@@ -434,6 +434,29 @@
         "xpp"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "imagera",
+      "source": {
+        "source": "github",
+        "repo": "alexadams6ix/imagera-skills"
+      },
+      "description": "Generate and edit images, video, voice and music, and upscale media, through Imagera's remote MCP server (OAuth sign-in), with agent skills for product shots, ad sets, character-consistent series and more. The hosted service is paid.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Imagera",
+        "url": "https://imagera.ai"
+      },
+      "homepage": "https://imagera.ai/mcp",
+      "repository": "https://github.com/alexadams6ix/imagera-skills",
+      "keywords": [
+        "image-generation",
+        "video-generation",
+        "text-to-speech",
+        "music",
+        "mcp"
+      ],
+      "license": "MIT"
     }
   ]
 }

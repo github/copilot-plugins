@@ -462,34 +462,6 @@
         "ai-factory"
       ],
       "license": "MIT"
-    },
-    {
-      "name": "port-skills",
-      "source": {
-        "source": "github",
-        "repo": "port-labs/port-skills"
-      },
-      "description": "Build, govern, and operate your AI software factory across context, workflows, and agents",
-      "version": "1.0.9",
-      "author": {
-        "name": "Port",
-        "email": "support@port.io",
-        "url": "https://port.io"
-      },
-      "homepage": "https://docs.port.io",
-      "repository": "https://github.com/port-labs/port-skills",
-      "keywords": [
-        "platform-engineering",
-        "developer-portal",
-        "idp",
-        "self-service",
-        "software-catalog",
-        "devops",
-        "mcp",
-        "software-ai-factory",
-        "ai-factory"
-      ],
-      "license": "MIT"
     }
   ]
 }

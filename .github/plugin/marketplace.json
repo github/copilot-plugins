@@ -434,6 +434,31 @@
         "xpp"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "shape-files",
+      "source": {
+        "source": "github",
+        "repo": "shapefs/shape-plugin",
+        "sha": "fbcf8b2c0a05520e614fe02e965468b1f433795a",
+        "path": "claude"
+      },
+      "description": "Find, read, save and organize files in a Shape workspace, with OAuth and retained version history.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Shape FS",
+        "url": "https://shapefs.com"
+      },
+      "homepage": "https://shapefs.com/connect",
+      "repository": "https://github.com/shapefs/shape-plugin",
+      "keywords": [
+        "shape",
+        "files",
+        "folders",
+        "file-search",
+        "version-history"
+      ],
+      "license": "MIT"
     }
   ]
 }

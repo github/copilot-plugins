@@ -439,7 +439,8 @@
       "name": "shape-files",
       "source": {
         "source": "github",
-        "repo": "shapefs/shape-plugin"
+        "repo": "shapefs/shape-plugin",
+        "path": "claude"
       },
       "description": "Find, read, save and organize files in a Shape workspace, with OAuth and retained version history.",
       "version": "1.0.0",

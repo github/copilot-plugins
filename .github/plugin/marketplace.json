@@ -434,6 +434,29 @@
         "xpp"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "romeo-seo",
+      "source": {
+        "source": "github",
+        "repo": "RomeoSEO/seo-skills"
+      },
+      "description": "Free SEO and AI search skills for audits, keyword research, content, schema and publishing workflows.",
+      "version": "3.0.0",
+      "author": {
+        "name": "RomeoSEO",
+        "url": "https://romeoseo.com"
+      },
+      "homepage": "https://romeoseo.com/skills",
+      "repository": "https://github.com/RomeoSEO/seo-skills",
+      "keywords": [
+        "romeoseo",
+        "seo",
+        "aeo",
+        "geo",
+        "ai-search"
+      ],
+      "license": "MIT"
     }
   ]
 }

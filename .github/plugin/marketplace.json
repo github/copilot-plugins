@@ -434,6 +434,25 @@
         "xpp"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "looki-plugin",
+      "source": {
+        "source": "github",
+        "repo": "looki-ai/looki-plugin"
+      },
+      "description": "Search and summarize personal memories saved by Looki using a Copilot skill and an OAuth-authenticated MCP server.",
+      "author": {
+        "name": "Looki"
+      },
+      "homepage": "https://platform.looki.ai",
+      "repository": "https://github.com/looki-ai/looki-plugin",
+      "keywords": [
+        "looki",
+        "memory",
+        "lifelogging",
+        "mcp"
+      ]
     }
   ]
 }

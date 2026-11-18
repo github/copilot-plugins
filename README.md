@@ -19,6 +19,8 @@ This marketplace also references plugins hosted in other repositories:
 
 - **[Azure DevOps Copilot Plugin](https://github.com/microsoft/azure-devops-copilot-plugin)** — Bring Azure DevOps work-item, repository, and pull-request workflows into GitHub Copilot.
 
+- **[Looki](https://github.com/looki-ai/looki-plugin)** — `looki-plugin`. Search and summarize personal memories saved by Looki using a Copilot skill and an OAuth-authenticated MCP server.
+
 - **[Microsoft Skills for Fabric](https://github.com/microsoft/skills-for-fabric)** — `fabric-skills`, `powerbi-authoring`. Skills and agents for Microsoft Fabric (Lakehouse, Warehouse, Power BI, Eventhouse, Eventstream, Dataflows, Spark).
 
 - **[Microsoft C++ Language Server](https://github.com/microsoft/cpp-language-server)** — Navigate and interact with your C++ code.

@@ -434,6 +434,28 @@
         "xpp"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "worktable",
+      "source": {
+        "source": "github",
+        "repo": "worktable/worktable-plugin"
+      },
+      "description": "Shared workspace for your agents: find, cite and update Docs, Records and HTML Docs, answer annotations and hand off work in threads, through Worktable's hosted MCP server with OAuth sign-in.",
+      "author": {
+        "name": "Reva Labs",
+        "url": "https://www.worktable.cloud"
+      },
+      "homepage": "https://www.worktable.cloud",
+      "repository": "https://github.com/worktable/worktable-plugin",
+      "keywords": [
+        "worktable",
+        "docs",
+        "records",
+        "knowledge-base",
+        "collaboration"
+      ],
+      "license": "MIT"
     }
   ]
 }

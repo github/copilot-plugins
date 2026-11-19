@@ -27,6 +27,8 @@ This marketplace also references plugins hosted in other repositories:
 
 - **[Power Platform Skills](https://github.com/microsoft/power-platform-skills)** — `power-pages`, `model-apps`, `mcp-apps`, `canvas-apps`, `code-apps-preview`, `mobile-app`, `power-automate`. Plugins for Power Platform development (Power Pages sites, model-driven and canvas apps, code apps, MCP App widgets, mobile apps, and Power Automate cloud flows).
 
+- **[Kling AI Global](https://github.com/klingai-tech/claude-plugin)** — `kling-ai-global-plugin`. Generate images and videos through Kling's OAuth-protected global MCP server from GitHub Copilot. Requires Kling sign-in and credits.
+
 ## 🤝 Contributing
 
 We'd love your contributions! Please read our [Contributing Guide](CONTRIBUTING.md) for details on how to submit pull requests.

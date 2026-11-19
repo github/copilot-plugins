@@ -434,6 +434,30 @@
         "xpp"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "kling-ai-global-plugin",
+      "source": {
+        "source": "github",
+        "repo": "klingai-tech/claude-plugin"
+      },
+      "description": "Generate images and videos with Kling AI in GitHub Copilot using the official OAuth-protected global MCP server. Requires Kling sign-in and credits.",
+      "version": "1.3.0",
+      "author": {
+        "name": "KLING AI Pte Ltd",
+        "url": "https://kling.ai/"
+      },
+      "homepage": "https://kling.ai/",
+      "repository": "https://github.com/klingai-tech/claude-plugin",
+      "keywords": [
+        "kling",
+        "kling-ai",
+        "image-generation",
+        "video-generation",
+        "mcp",
+        "copilot"
+      ],
+      "license": "MIT"
     }
   ]
 }

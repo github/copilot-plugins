@@ -96,6 +96,28 @@
       ]
     },
     {
+      "name": "build-perf-cpp",
+      "source": "./plugins/build-perf-cpp",
+      "description": "Analyze MSVC build performance using vcperf.exe and ETL traces.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ion Todirel and Eve Silfanus",
+        "url": "https://github.com/es110"
+      },
+      "homepage": "https://github.com/github/copilot-plugins/tree/main/plugins/build-perf-cpp",
+      "repository": "https://github.com/github/copilot-plugins",
+      "keywords": [
+        "cpp",
+        "c++",
+        "msvc",
+        "vcperf",
+        "build-performance",
+        "build-insights",
+        "compile-time"
+      ],
+      "license": "MIT"
+    },
+    {
       "name": "advanced-security",
       "source": {
         "source": "github",
@@ -104,6 +126,27 @@
       "description": "Advanced Security plugin for GitHub Copilot.",
       "version": "1.0.0",
       "repository": "https://github.com/github/copilot-advanced-security-plugin"
+    },
+    {
+      "name": "azure-devops-copilot-plugin",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/azure-devops-copilot-plugin"
+      },
+      "description": "Bring Azure DevOps work-item, repository, and pull-request workflows into GitHub Copilot.",
+      "author": {
+        "name": "Microsoft",
+        "url": "https://www.microsoft.com"
+      },
+      "homepage": "https://github.com/microsoft/azure-devops-copilot-plugin",
+      "repository": "https://github.com/microsoft/azure-devops-copilot-plugin",
+      "keywords": [
+        "azure-devops",
+        "ado",
+        "work-items",
+        "pull-requests"
+      ],
+      "license": "MIT"
     },
     {
       "name": "fabric-skills",
@@ -126,65 +169,6 @@
         "kusto",
         "eventhouse",
         "real-time-intelligence"
-      ],
-      "license": "MIT"
-    },
-    {
-      "name": "fabric-authoring",
-      "source": {
-        "source": "github",
-        "repo": "microsoft/skills-for-fabric",
-        "path": "plugins/fabric-authoring"
-      },
-      "description": "Developer skills for authoring Microsoft Fabric solutions - SDKs, APIs, automation scripts, CI/CD.",
-      "version": "0.3.0",
-      "repository": "https://github.com/microsoft/skills-for-fabric",
-      "keywords": [
-        "fabric",
-        "microsoft-fabric",
-        "authoring",
-        "developer",
-        "sdk",
-        "api"
-      ],
-      "license": "MIT"
-    },
-    {
-      "name": "fabric-consumption",
-      "source": {
-        "source": "github",
-        "repo": "microsoft/skills-for-fabric",
-        "path": "plugins/fabric-consumption"
-      },
-      "description": "Consumer skills for interactive Microsoft Fabric operations - queries, exploration, monitoring.",
-      "version": "0.3.0",
-      "repository": "https://github.com/microsoft/skills-for-fabric",
-      "keywords": [
-        "fabric",
-        "microsoft-fabric",
-        "consumption",
-        "query",
-        "exploration"
-      ],
-      "license": "MIT"
-    },
-    {
-      "name": "fabric-operations",
-      "source": {
-        "source": "github",
-        "repo": "microsoft/skills-for-fabric",
-        "path": "plugins/fabric-operations"
-      },
-      "description": "Operations skills for diagnosing Microsoft Fabric performance and health - system views, multi-step investigation workflows.",
-      "version": "0.3.0",
-      "repository": "https://github.com/microsoft/skills-for-fabric",
-      "keywords": [
-        "fabric",
-        "microsoft-fabric",
-        "operations",
-        "monitoring",
-        "diagnostics",
-        "performance"
       ],
       "license": "MIT"
     },
@@ -427,13 +411,38 @@
       "license": "MIT"
     },
     {
+      "name": "dataverse",
+      "source": {
+        "source": "github",
+        "repo": "microsoft/Dataverse-skills",
+        "path": ".github/plugins/dataverse"
+      },
+      "description": "Microsoft Dataverse plugin for coding agents, covering record CRUD, bulk data operations, advanced queries, schema and metadata, administration, security, environment management, and solution lifecycle through MCP, CLI, and SDK workflows.",
+      "author": {
+        "name": "Microsoft",
+        "url": "https://www.microsoft.com"
+      },
+      "homepage": "https://github.com/microsoft/Dataverse-skills",
+      "repository": "https://github.com/microsoft/Dataverse-skills",
+      "keywords": [
+        "dataverse",
+        "power-platform",
+        "power-apps",
+        "dynamics-365",
+        "dynamics-crm",
+        "finance-operations",
+        "xpp"
+      ],
+      "license": "MIT"
+    },
+    {
       "name": "pushary",
       "source": {
         "source": "github",
         "repo": "Pushary/vscode-plugin"
       },
       "description": "VS Code Copilot PreToolUse permission gate that routes risky terminal commands to a phone approval before they run, plus MCP tools for the agent to ask questions and send notifications. Requires a Pushary account.",
-      "version": "0.2.4",
+      "version": "0.2.10",
       "author": {
         "name": "Pushary",
         "url": "https://pushary.com"
@@ -443,11 +452,11 @@
       "keywords": [
         "human-in-the-loop",
         "approvals",
+        "phone-approval",
         "permissions",
         "notifications",
         "hooks",
-        "pretooluse",
-        "mcp"
+        "pretooluse"
       ],
       "license": "MIT"
     }

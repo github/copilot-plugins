@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "type": "command",
+        "powershell": "./scripts/install-vcperf.ps1",
+        "timeoutSec": 120
+      }
+    ],
+    "userPromptSubmitted": [
+      {
+        "type": "command",
+        "powershell": "./scripts/write-correlation-id.ps1",
+        "timeoutSec": 5
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "build-perf-cpp",
+  "description": "Analyze C++ build performance using vcperf.exe and ETL traces. Profiles MSVC builds, identifies expensive headers and templates, generates JSON analysis reports, and recommends measurable remediation.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Ion Todirel and Eve Silfanus",
+    "email": "evesilfanus@microsoft.com"
+  },
+  "homepage": "https://github.com/github/copilot-plugins/tree/main/plugins/build-perf-cpp",
+  "repository": "https://github.com/github/copilot-plugins",
+  "license": "MIT",
+  "keywords": [
+    "cpp",
+    "c++",
+    "msvc",
+    "vcperf",
+    "build-performance",
+    "build-insights",
+    "compile-time",
+    "copilot-cli"
+  ],
+  "skills": [
+    "skills/"
+  ],
+  "hooks": "hooks/hooks.json"
+}

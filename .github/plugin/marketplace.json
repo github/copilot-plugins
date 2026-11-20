@@ -436,7 +436,7 @@
       "license": "MIT"
     },
     {
-      "name": "motherduck-skills",
+      "name": "motherduck",
       "source": {
         "source": "github",
         "repo": "motherduckdb/agent-skills",

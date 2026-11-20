@@ -25,6 +25,8 @@ This marketplace also references plugins hosted in other repositories:
 
 - **[Microsoft Dataverse](https://github.com/microsoft/Dataverse-skills)** — `dataverse`. Build and manage Dataverse solutions: record CRUD and bulk data, queries, schema and metadata, administration, security, and solution lifecycle through MCP, CLI, and SDK workflows.
 
+- **[MotherDuck](https://github.com/motherduckdb/agent-skills)** — `motherduck`. Skills and the hosted MotherDuck MCP server for the MotherDuck cloud data warehouse: explore schemas, write DuckDB SQL, build Dives and Flights, and ship analytics apps and pipelines.
+
 - **[Power Platform Skills](https://github.com/microsoft/power-platform-skills)** — `power-pages`, `model-apps`, `mcp-apps`, `canvas-apps`, `code-apps-preview`, `mobile-app`, `power-automate`. Plugins for Power Platform development (Power Pages sites, model-driven and canvas apps, code apps, MCP App widgets, mobile apps, and Power Automate cloud flows).
 
 ## 🤝 Contributing

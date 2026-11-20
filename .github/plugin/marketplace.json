@@ -434,6 +434,32 @@
         "xpp"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "motherduck",
+      "source": {
+        "source": "github",
+        "repo": "motherduckdb/agent-skills",
+        "path": "plugins/motherduck-skills-copilot"
+      },
+      "description": "MotherDuck skills and the MotherDuck MCP server for agents and developers: use the CLI and Guides, explore schemas, write DuckDB SQL, build Dives and Flights, and ship analytics apps and pipelines.",
+      "author": {
+        "name": "MotherDuck",
+        "url": "https://motherduck.com"
+      },
+      "homepage": "https://motherduck.com",
+      "repository": "https://github.com/motherduckdb/agent-skills",
+      "keywords": [
+        "motherduck",
+        "duckdb",
+        "data-warehouse",
+        "analytics",
+        "sql",
+        "mcp",
+        "dives",
+        "flights"
+      ],
+      "license": "MIT"
     }
   ]
 }

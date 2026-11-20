@@ -458,6 +458,31 @@
         "copilot"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "kling-ai-china-plugin",
+      "source": {
+        "source": "github",
+        "repo": "klingai-tech/claude-plugin-cn"
+      },
+      "description": "Generate images and videos with Kling AI China in GitHub Copilot using the official OAuth-protected China MCP server. Requires a China Kling account and credits.",
+      "version": "1.3.3",
+      "author": {
+        "name": "KLING AI Pte Ltd",
+        "url": "https://klingai.com/"
+      },
+      "homepage": "https://klingai.com/",
+      "repository": "https://github.com/klingai-tech/claude-plugin-cn",
+      "keywords": [
+        "kling",
+        "kling-ai",
+        "image-generation",
+        "video-generation",
+        "mcp",
+        "copilot",
+        "china"
+      ],
+      "license": "MIT"
     }
   ]
 }

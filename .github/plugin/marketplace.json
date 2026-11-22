@@ -434,6 +434,53 @@
         "xpp"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "kling-ai-global-plugin",
+      "source": {
+        "source": "github",
+        "repo": "klingai-tech/claude-plugin"
+      },
+      "description": "Official Kling AI Global plugin for image and video generation, editing, motion control, and reusable Elements.",
+      "author": {
+        "name": "KLING AI Pte Ltd",
+        "url": "https://kling.ai/"
+      },
+      "homepage": "https://kling.ai/app/mcp/guide",
+      "repository": "https://github.com/klingai-tech/claude-plugin",
+      "keywords": [
+        "kling",
+        "kling-ai",
+        "image-generation",
+        "video-generation",
+        "mcp",
+        "npm"
+      ],
+      "license": "MIT"
+    },
+    {
+      "name": "kling-ai-cn-plugin",
+      "source": {
+        "source": "github",
+        "repo": "klingai-tech/claude-plugin-cn"
+      },
+      "description": "Official Kling AI China plugin for image and video generation, editing, motion control, and reusable Elements.",
+      "author": {
+        "name": "KLING AI Pte Ltd",
+        "url": "https://klingai.com/app"
+      },
+      "homepage": "https://klingai.com/app/mcp/guide",
+      "repository": "https://github.com/klingai-tech/claude-plugin-cn",
+      "keywords": [
+        "kling",
+        "kling-ai",
+        "image-generation",
+        "video-generation",
+        "mcp",
+        "npm",
+        "china"
+      ],
+      "license": "MIT"
     }
   ]
 }

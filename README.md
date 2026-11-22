@@ -19,6 +19,8 @@ This marketplace also references plugins hosted in other repositories:
 
 - **[Azure DevOps Copilot Plugin](https://github.com/microsoft/azure-devops-copilot-plugin)** — Bring Azure DevOps work-item, repository, and pull-request workflows into GitHub Copilot.
 
+- **[DC Hub](https://github.com/azmartone67/dchub-mcp-server/tree/main/plugins/dchub-copilot)** — `dchub`. The orchestration layer for data center and energy intelligence: the hosted DC Hub MCP server (`https://dchub.cloud/mcp`) plus skills for site screens, time-to-power memos and market comparisons. Call `execute_plan` first; answers are dated and cited, including the Data Center Power Index (DCPI) verdict.
+
 - **[Microsoft Skills for Fabric](https://github.com/microsoft/skills-for-fabric)** — `fabric-skills`, `powerbi-authoring`. Skills and agents for Microsoft Fabric (Lakehouse, Warehouse, Power BI, Eventhouse, Eventstream, Dataflows, Spark).
 
 - **[Microsoft C++ Language Server](https://github.com/microsoft/cpp-language-server)** — Navigate and interact with your C++ code.

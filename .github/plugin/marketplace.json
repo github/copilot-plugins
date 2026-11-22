@@ -434,6 +434,32 @@
         "xpp"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "dchub",
+      "source": {
+        "source": "github",
+        "repo": "azmartone67/dchub-mcp-server",
+        "path": "plugins/dchub-copilot"
+      },
+      "description": "DC Hub, the orchestration layer for data center and energy intelligence: the hosted DC Hub MCP server plus three workflow skills. Call execute_plan first for questions about grid headroom, interconnection queues, time-to-power, energy prices, facilities, fiber and sites; it returns one dated, cited answer, including the Data Center Power Index (DCPI) verdict.",
+      "author": {
+        "name": "DC Hub",
+        "url": "https://dchub.cloud"
+      },
+      "homepage": "https://dchub.cloud/install/copilot-cli",
+      "repository": "https://github.com/azmartone67/dchub-mcp-server",
+      "keywords": [
+        "data-center",
+        "energy",
+        "power-grid",
+        "interconnection-queue",
+        "site-selection",
+        "colocation",
+        "fiber",
+        "mcp"
+      ],
+      "license": "MIT"
     }
   ]
 }

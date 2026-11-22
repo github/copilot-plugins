@@ -442,6 +442,7 @@
         "repo": "klingai-tech/claude-plugin"
       },
       "description": "Official Kling AI Global plugin for image and video generation, editing, motion control, and reusable Elements. Generation uses credits in the Global Kling account.",
+      "version": "1.3.0",
       "author": {
         "name": "KLING AI Pte Ltd",
         "url": "https://kling.ai/"
@@ -465,6 +466,7 @@
         "repo": "klingai-tech/claude-plugin-cn"
       },
       "description": "Official Kling AI China plugin for image and video generation, editing, motion control, and reusable Elements. Generation uses credits in the China Kling account.",
+      "version": "1.3.3",
       "author": {
         "name": "KLING AI Pte Ltd",
         "url": "https://klingai.com/app"

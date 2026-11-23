@@ -441,8 +441,8 @@
         "source": "github",
         "repo": "Pushary/vscode-plugin"
       },
-      "description": "VS Code Copilot PreToolUse permission gate that routes risky terminal commands to a phone approval before they run, plus MCP tools for the agent to ask questions and send notifications. Requires a Pushary account.",
-      "version": "0.2.10",
+      "description": "When Copilot in VS Code needs permission to run a command, Pushary can send it to your phone. Approve to let it run or deny to stop it. On Team, route selected approvals to a teammate. Requires a Pushary account.",
+      "version": "0.2.13",
       "author": {
         "name": "Pushary",
         "url": "https://pushary.com"

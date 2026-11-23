@@ -434,6 +434,31 @@
         "xpp"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "pushary",
+      "source": {
+        "source": "github",
+        "repo": "Pushary/vscode-plugin"
+      },
+      "description": "When Copilot in VS Code needs permission to run a command, Pushary can send it to your phone. Approve to let it run or deny to stop it. On Team, route selected approvals to a teammate. Requires a Pushary account.",
+      "version": "0.2.13",
+      "author": {
+        "name": "Pushary",
+        "url": "https://pushary.com"
+      },
+      "homepage": "https://pushary.com",
+      "repository": "https://github.com/Pushary/vscode-plugin",
+      "keywords": [
+        "human-in-the-loop",
+        "approvals",
+        "phone-approval",
+        "permissions",
+        "notifications",
+        "hooks",
+        "pretooluse"
+      ],
+      "license": "MIT"
     }
   ]
 }

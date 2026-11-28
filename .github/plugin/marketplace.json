@@ -434,6 +434,32 @@
         "xpp"
       ],
       "license": "MIT"
+    },
+    {
+      "name": "callmemcp",
+      "source": {
+        "source": "github",
+        "repo": "radres/callmemcp",
+        "path": "plugin"
+      },
+      "description": "Your agent calls or texts your phone (iPhone or Android) through the hosted CallMeMCP server and gets your spoken answer back as text. Needs the /call-me app from callmemcp.com.",
+      "author": {
+        "name": "CallMeMCP",
+        "url": "https://callmemcp.com"
+      },
+      "homepage": "https://callmemcp.com",
+      "repository": "https://github.com/radres/callmemcp",
+      "keywords": [
+        "phone",
+        "call",
+        "text",
+        "voice",
+        "iphone",
+        "android",
+        "human-in-the-loop",
+        "mcp"
+      ],
+      "license": "MIT"
     }
   ]
 }
